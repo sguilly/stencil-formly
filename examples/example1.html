@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Formly</title>
+    <script type="module" src="/dist/stencil-formly/stencil-formly.esm.js"></script>
+  </head>
+  <body>
+    <!-- <example-1></example-1> -->
+    <dynamic-form></dynamic-form>
+    <script>
+      let df = document.querySelector('dynamic-form');
+      df.model = {
+        firstName: 'Stéphane',
+        lastName: 'GUILLY 2',
+      };
+      df.fields = [
+        {
+          key: 'firstName',
+          type: 'input',
+          templateOptions: {
+            label: 'Prénom',
+            required: true,
+          },
+        },
+        {
+          key: 'lastName',
+          type: 'input',
+          templateOptions: {
+            label: 'Nom',
+            required: true,
+          },
+        },
+      ];
+
+      df.addEventListener('event', e => {
+        console.log('e=', e.detail);
+      });
+    </script>
+  </body>
+</html>

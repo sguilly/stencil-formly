@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Formly</title>
+    <script type="module" src="/dist/stencil-formly/stencil-formly.esm.js"></script>
+  </head>
+  <body>
+    <!-- <example-1></example-1> -->
+    <dynamic-form></dynamic-form>
+    <script>
+      let df = document.querySelector('dynamic-form');
+      df.model = {
+        firstName: 'Stéphane',
+        lastName: 'GUILLY 2',
+      };
+      df.fields = [
+        {
+          key: 'idTravel',
+          type: 'input',
+          templateOptions: {
+            label: 'ID-TRAVEL',
+            required: true,
+          },
+        },
+        {
+          key: 'nom',
+          type: 'input',
+          templateOptions: {
+            label: 'Nom Entreprise',
+            required: true,
+          },
+        },
+        {
+          key: 'email',
+          type: 'input',
+          templateOptions: {
+            label: 'Email',
+            required: true,
+          },
+        },
+        {
+          key: 'telephone',
+          type: 'phonenumber',
+          templateOptions: {
+            label: 'Téléphone',
+            required: true,
+          },
+        },
+        {
+          key: 'activite',
+          type: 'select',
+          templateOptions: {
+            label: 'Activité',
+            required: true,
+            options: [
+              {
+                id: 1,
+                value: 1,
+                label: 'SPORT',
+              },
+              {
+                id: 2,
+                value: 2,
+                label: 'CULTUREL',
+              },
+              {
+                id: 3,
+                value: 3,
+                label: 'AUTRE',
+              },
+            ],
+          },
+        },
+        {
+          key: 'famille',
+          type: 'select',
+          templateOptions: {
+            label: 'Famille',
+            required: true,
+            options: [
+              {
+                id: 1,
+                value: 1,
+                label: 'SURF',
+              },
+              {
+                id: 2,
+                value: 2,
+                label: 'GOLF',
+              },
+              {
+                id: 3,
+                value: 3,
+                label: 'AUTRE',
+              },
+            ],
+          },
+        },
+      ];
+
+      df.addEventListener('event', e => {
+        console.log('e=', e.detail);
+      });
+    </script>
+  </body>
+</html>
