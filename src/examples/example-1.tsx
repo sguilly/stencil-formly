@@ -76,35 +76,7 @@ export class Example1 {
           },
           {
             value: 3,
-            label: 'VITESSE',
-          },
-          {
-            value: 4,
-            label: 'DISTANCE',
-          },
-          {
-            value: 5,
-            label: 'VITESSE',
-          },
-          {
-            value: 6,
-            label: 'DISTANCE',
-          },
-          {
-            value: 7,
-            label: 'VITESSE',
-          },
-          {
-            value: 8,
-            label: 'DISTANCE',
-          },
-          {
-            value: 9,
-            label: 'VITESSE',
-          },
-          {
-            value: 10,
-            label: 'DISTANCE',
+            label: 'ALCOOL',
           },
         ],
       },
@@ -234,14 +206,6 @@ export class Example1 {
   render() {
     return (
       <div>
-        <button
-          class="button"
-          onClick={() => {
-            this.save();
-          }}
-        >
-          SAUVER
-        </button>
         <dynamic-form
           model={this.model}
           fields={this.form}

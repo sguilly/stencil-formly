@@ -17,7 +17,6 @@ const DynamicForm = class {
     let isDisabled = false;
     if (element.disable) {
       isDisabled = element.disable(this.model);
-      //console.log(element.key + " disable =", isDisabled);
     }
     const Tag = 'field-' + element.type;
     return (h(Tag, { value: this.model[element.key], templateOptions: element.templateOptions, onCustomChange: ev => {
@@ -38,11 +37,9 @@ const DynamicForm = class {
       let isHide = false;
       if (element.hide) {
         isHide = element.hide(this.model);
-        //console.log(element.key + " hide =", isHide);
       }
       if (isHide == false) {
         if (element.type == 'line') {
-          //console.log('el=', element);
           return [
             h("div", { class: "df-fields-container" }, element.fields.map(element => {
               var _a;
@@ -60,9 +57,7 @@ const DynamicForm = class {
   render() {
     var _a;
     console.log('render form', this.model, this.fields);
-    return (h("div", null, ((_a = this.fields) === null || _a === void 0 ? void 0 : _a.length) ? this.renderFields(this.fields) : null, h("button", { class: "button is-fullwidth is-info is-light", onClick: () => {
-        this.event.emit({ type: 'submit', model: this.model });
-      } }, "SAUVEGARDER")));
+    return h("div", null, ((_a = this.fields) === null || _a === void 0 ? void 0 : _a.length) ? this.renderFields(this.fields) : null);
   }
 };
 DynamicForm.style = dynamicFormCss;

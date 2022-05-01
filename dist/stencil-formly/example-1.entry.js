@@ -73,35 +73,7 @@ const Example1 = class {
             },
             {
               value: 3,
-              label: 'VITESSE',
-            },
-            {
-              value: 4,
-              label: 'DISTANCE',
-            },
-            {
-              value: 5,
-              label: 'VITESSE',
-            },
-            {
-              value: 6,
-              label: 'DISTANCE',
-            },
-            {
-              value: 7,
-              label: 'VITESSE',
-            },
-            {
-              value: 8,
-              label: 'DISTANCE',
-            },
-            {
-              value: 9,
-              label: 'VITESSE',
-            },
-            {
-              value: 10,
-              label: 'DISTANCE',
+              label: 'ALCOOL',
             },
           ],
         },
@@ -227,9 +199,7 @@ const Example1 = class {
   }
   save() { }
   render() {
-    return (h("div", null, h("button", { class: "button", onClick: () => {
-        this.save();
-      } }, "SAUVER"), h("dynamic-form", { model: this.model, fields: this.form, options: {
+    return (h("div", null, h("dynamic-form", { model: this.model, fields: this.form, options: {
         fieldClass: 'ml-4 mr-4',
         separator: true,
       } }), ";"));

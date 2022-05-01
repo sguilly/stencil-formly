@@ -70,18 +70,6 @@ export class DynamicForm {
 
   render() {
     console.log('render form', this.model, this.fields);
-    return (
-      <div>
-        {this.fields?.length ? this.renderFields(this.fields) : null}
-        <button
-          class="button is-fullwidth is-info is-light"
-          onClick={() => {
-            this.event.emit({ type: 'submit', model: this.model });
-          }}
-        >
-          SAUVEGARDER
-        </button>
-      </div>
-    );
+    return <div>{this.fields?.length ? this.renderFields(this.fields) : null}</div>;
   }
 }
