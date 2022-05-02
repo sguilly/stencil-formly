@@ -5,181 +5,17 @@ const Example1 = class {
     registerInstance(this, hostRef);
     this.model = {
       firstName: 'Stéphane',
-      lastName: 'GUILLY 2',
+      lastName: 'GUILLY',
     };
     this.form = [
       {
-        key: 'slider',
-        type: 'slider',
-        templateOptions: {
-          label: 'Fourchette :',
-          required: true,
-        },
-      },
-      {
-        key: 'phone',
-        type: 'phonenumber',
-        templateOptions: {
-          label: 'Téléphone :',
-          required: true,
-        },
-      },
-      {
-        key: 'docs',
-        hide: model => {
-          //console.log("call hide", model);
-          return (model === null || model === void 0 ? void 0 : model.checkbox1) == true;
-        },
-        type: 'docs',
-        templateOptions: {
-          label: 'Documents :',
-          required: true,
-        },
-      },
-      {
-        key: 'checkbox1',
-        type: 'checkbox',
-        templateOptions: {
-          label: "87-Cet accident a-t-il été déclaré à l'assureur ?",
-          required: true,
-          multiple: false,
-          options: [
-            {
-              value: true,
-              label: 'OUI',
-            },
-            {
-              value: false,
-              label: 'NON',
-            },
-          ],
-        },
-      },
-      {
-        key: 'checkbox2',
-        type: 'checkbox',
-        templateOptions: {
-          label: "Condition de l'accident",
-          required: false,
-          multiple: true,
-          options: [
-            {
-              value: 1,
-              label: 'VITESSE',
-            },
-            {
-              value: 2,
-              label: 'DISTANCE',
-            },
-            {
-              value: 3,
-              label: 'ALCOOL',
-            },
-          ],
-        },
-      },
-      {
-        key: 'date2',
-        type: 'datepicker',
-        templateOptions: {
-          label: 'Date',
-          required: true,
-        },
-      },
-      {
-        key: 'type1',
-        type: 'select',
-        templateOptions: {
-          label: 'Selection du type',
-          required: true,
-          options: [
-            {
-              id: 1,
-              value: 1,
-              label: 'ID1',
-            },
-            {
-              id: 2,
-              value: 2,
-              label: 'ID2',
-            },
-            {
-              id: 3,
-              value: 3,
-              label: 'ID3',
-            },
-          ],
-        },
-      },
-      {
-        key: 'comment',
-        type: 'textarea',
-        templateOptions: {
-          label: 'Commentaires',
-          required: true,
-        },
-      },
-      {
-        key: 'lastName',
-        type: 'input',
-        templateOptions: {
-          label: 'Nom',
-          required: true,
-        },
-      },
-      {
-        key: 'phoneNumber',
-        type: 'input',
-        templateOptions: {
-          label: 'Téléphone',
-          type: 'number',
-          required: false,
-        },
-        disable: model => {
-          //console.log("call disable", model);
-          return (model === null || model === void 0 ? void 0 : model.external) == true;
-        },
-      },
-      {
-        type: 'line',
-        hide: model => {
-          return (model === null || model === void 0 ? void 0 : model.external) == true;
-        },
-        fields: [
-          {
-            key: 'firstName',
-            type: 'input',
-            templateOptions: {
-              label: 'Prénom',
-              required: true,
-            },
-          },
-          {
-            key: 'lastName',
-            type: 'input',
-            templateOptions: {
-              label: 'Nom',
-              required: true,
-            },
-          },
-          {
-            key: 'age',
-            type: 'input',
-            templateOptions: {
-              label: 'Age',
-              required: true,
-            },
-          },
-        ],
-      },
-      {
         type: 'line',
         fields: [
           {
             key: 'firstName',
             type: 'input',
             templateOptions: {
-              label: 'Prénom',
+              label: 'First Name',
               required: true,
             },
             size: '1',
@@ -188,18 +24,142 @@ const Example1 = class {
             key: 'lastName',
             type: 'input',
             templateOptions: {
-              label: 'Nom',
+              label: 'Last Name',
               required: true,
             },
-            size: '3',
+            size: '1',
           },
         ],
+      },
+      {
+        key: 'email',
+        type: 'input',
+        templateOptions: {
+          label: 'Email',
+          required: true,
+        },
+      },
+      {
+        type: 'line',
+        fields: [
+          {
+            key: 'birthday',
+            type: 'datepicker',
+            templateOptions: {
+              label: 'Birthday Date',
+              required: true,
+            }
+          },
+          {
+            key: 'type1',
+            type: 'select',
+            templateOptions: {
+              label: 'Birthday Country',
+              required: true,
+              options: [
+                {
+                  id: 1,
+                  value: 1,
+                  label: 'France',
+                },
+                {
+                  id: 2,
+                  value: 2,
+                  label: 'Italy',
+                },
+                {
+                  id: 3,
+                  value: 3,
+                  label: "Spain",
+                },
+              ],
+            },
+          },
+          {
+            key: 'phone',
+            type: 'phonenumber',
+            templateOptions: {
+              label: 'Phone Number :',
+              required: true,
+            },
+          },
+        ],
+      },
+      {
+        key: 'slider',
+        type: 'slider',
+        templateOptions: {
+          label: 'Dark Level :',
+          required: true,
+        },
+      },
+      {
+        key: 'displayDocs',
+        type: 'checkbox',
+        templateOptions: {
+          label: "Do you want to add documents ?",
+          required: true,
+          multiple: false,
+          options: [
+            {
+              value: true,
+              label: 'YES',
+            },
+            {
+              value: false,
+              label: 'NO',
+            },
+          ],
+        },
+      },
+      {
+        key: 'docs',
+        hide: model => {
+          var _a;
+          return ((_a = model === null || model === void 0 ? void 0 : model.displayDocs) === null || _a === void 0 ? void 0 : _a.length) && model.displayDocs[0] == true ? false : true;
+        },
+        type: 'docs',
+        templateOptions: {
+          label: 'Documents :',
+          required: true,
+        },
+      },
+      {
+        key: 'level',
+        type: 'checkbox',
+        templateOptions: {
+          label: "Level",
+          required: false,
+          multiple: true,
+          options: [
+            {
+              value: 1,
+              label: 'LOW',
+            },
+            {
+              value: 2,
+              label: 'MEDIUM',
+            },
+            {
+              value: 3,
+              label: 'HIGH',
+            },
+          ],
+        },
+      },
+      {
+        key: 'comment',
+        type: 'textarea',
+        templateOptions: {
+          label: 'Notes',
+          required: true,
+        },
       },
     ];
   }
   save() { }
   render() {
-    return (h("div", null, h("dynamic-form", { model: this.model, fields: this.form, options: {
+    return (h("div", { class: "m-4" }, h("dynamic-form", { model: this.model, fields: this.form, options: {
         fieldClass: 'ml-4 mr-4',
         separator: true,
       } }), ";"));

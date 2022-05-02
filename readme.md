@@ -2,9 +2,119 @@
 
 # STENCIL-FORMLY
 
+JSON   -->          |  --> Form
+:-------------------------:|:-------------------------:
+![](https://github.com/sguilly/stencil-formly/raw/main/docs/assets/json.png)  |  ![](https://github.com/sguilly/stencil-formly/raw/main/docs/assets/form.png)
+
 ## Getting Started
 
 ```bash
 npm install
-npm start
+npm run start
+```
+
+# USE AS WEB COMPONENT
+
+```html
+<head>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/sguilly/stencil-formly/dist/stencil-formly/stencil-formly.esm.js"></script>
+</head>
+```
+
+```html
+<body>
+    <dynamic-form></dynamic-form>
+    <script>
+      let df = document.querySelector('dynamic-form');
+      df.model = {
+        firstName: 'Stéphane',
+        lastName: 'GUILLY 2',
+      };
+      df.fields = [
+        {
+          key: 'firstName',
+          type: 'input',
+          templateOptions: {
+            label: 'Prénom',
+            required: true,
+          },
+        },
+        {
+          key: 'lastName',
+          type: 'input',
+          templateOptions: {
+            label: 'Nom',
+            required: true,
+          },
+        },
+      ];
+
+      df.addEventListener('event', e => {
+        console.log('e=', e.detail);
+      });
+    </script>
+  </body>
+```
+
+# USE IN STENCIL
+
+```js
+
+import { Component, h } from '@stencil/core';
+
+@Component({
+  tag: 'example-1',
+})
+export class Example1 {
+  model = {
+    firstName: 'Stéphane',
+    lastName: 'GUILLY',
+  };
+
+  form = [
+    {
+      type: 'line',
+      fields: [
+        {
+          key: 'firstName',
+          type: 'input',
+          templateOptions: {
+            label: 'First Name',
+            required: true,
+          },
+          size: '1',
+        },
+        {
+          key: 'lastName',
+          type: 'input',
+          templateOptions: {
+            label: 'Last Name',
+            required: true,
+          },
+          size: '1',
+        },
+      ],
+    }
+  ]
+
+
+  render() {
+    return (
+      <div class="m-4">
+        <dynamic-form
+          model={this.model}
+          fields={this.form}
+          options={{
+            fieldClass: 'ml-4 mr-4',
+            separator: true,
+          }}
+          onEvent={(ev)=>{
+              console.log(ev.detail)
+          }}
+        ></dynamic-form>
+        ;
+      </div>
+    );
+  }
+}
 ```
