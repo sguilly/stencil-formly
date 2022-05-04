@@ -1,4 +1,6 @@
-import { r as registerInstance, e as createEvent, h } from './index-c27fa563.js';
+import { r as registerInstance, e as createEvent, h } from './index-3259bf0a.js';
+import { g as getClassNames } from './style-c70c7711.js';
+import './styleStore-100e5755.js';
 
 const FieldInput = class {
   constructor(hostRef) {
@@ -8,14 +10,15 @@ const FieldInput = class {
     this.templateOptions = {};
   }
   renderInput() {
-    var _a;
-    return (h("input", { disabled: this.disabled, class: 'input form-control' + (this.displayRequired == true ? ' df-is-required' : ''), placeholder: "Text input", type: ((_a = this.templateOptions) === null || _a === void 0 ? void 0 : _a.type) || 'text', value: this.value, onInput: (ev) => {
+    var _a, _b, _c, _d;
+    return (h("input", { disabled: this.disabled, class: (((_c = (_b = (_a = this.classNames) === null || _a === void 0 ? void 0 : _a.group) === null || _b === void 0 ? void 0 : _b.control) === null || _c === void 0 ? void 0 : _c.className) || '') + (this.displayRequired == true ? ' df-is-required' : ''), placeholder: "Text input", type: ((_d = this.templateOptions) === null || _d === void 0 ? void 0 : _d.type) || 'text', value: this.value, onInput: (ev) => {
         console.log(ev.target.value);
         this.customChange.emit({ value: ev.target.value });
       } }));
   }
   async componentWillRender() {
     var _a;
+    this.classNames = getClassNames();
     this.displayRequired = ((_a = this.templateOptions) === null || _a === void 0 ? void 0 : _a.required) == true && !this.value;
   }
   render() {

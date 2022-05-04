@@ -1,4 +1,4 @@
-import { r as registerInstance, e as createEvent, h } from './index-c27fa563.js';
+import { r as registerInstance, e as createEvent, h } from './index-3259bf0a.js';
 import { l as loadCss, b as loadScript } from './loadScript-a05def91.js';
 
 const FieldSlider = class {

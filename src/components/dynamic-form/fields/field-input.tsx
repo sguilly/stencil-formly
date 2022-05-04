@@ -1,4 +1,5 @@
 import { Component, h, State, Prop, Event, EventEmitter } from '@stencil/core';
+import { getClassNames } from '../../../styles/style';
 
 @Component({
   tag: 'field-input',
@@ -11,12 +12,13 @@ export class FieldInput {
   @Event() customChange: EventEmitter<any>;
 
   displayRequired;
+  classNames
 
   renderInput() {
     return (
       <input
         disabled={this.disabled}
-        class={'input form-control' + (this.displayRequired == true ? ' df-is-required' : '')}
+        class={(this.classNames?.group?.control?.className || '') + (this.displayRequired == true ? ' df-is-required' : '')}
         placeholder="Text input"
         type={this.templateOptions?.type || 'text'}
         value={this.value}
@@ -29,6 +31,7 @@ export class FieldInput {
   }
 
   async componentWillRender() {
+    this.classNames = getClassNames()
     this.displayRequired = this.templateOptions?.required == true && !this.value;
   }
 

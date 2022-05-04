@@ -1,4 +1,4 @@
-import { r as registerInstance, e as createEvent, h } from './index-c27fa563.js';
+import { r as registerInstance, e as createEvent, h } from './index-3259bf0a.js';
 
 const FieldSelect = class {
   constructor(hostRef) {

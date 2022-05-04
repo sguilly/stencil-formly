@@ -168,8 +168,9 @@ export class Example1 {
           model={this.model}
           fields={this.form}
           options={{
-            fieldClass: 'ml-4 mr-4',
+            //fieldClass: 'ml-4 mr-4',
             separator: true,
+            style: 'bulma'
           }}
         ></dynamic-form>
         ;

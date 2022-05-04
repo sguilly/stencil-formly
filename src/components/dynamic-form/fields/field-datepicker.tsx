@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Element, State, h, Prop, Watch } from '@stencil/core';
-
+import { getClassNames } from '../../../styles/style';
 import { loadScript, loadCss, loadModule, loadNoModule } from '../../../utils/loadScript';
 
 declare var flatpickr: any;
@@ -22,7 +22,9 @@ export class FieldDatepickerComponent {
   datePickerElement;
 
   calendar;
+
   displayRequired;
+  classNames
 
   @State() dateStr;
 
@@ -67,10 +69,11 @@ export class FieldDatepickerComponent {
   }
 
   renderInput() {
-    return [<input class="input" type="text" placeholder="Select Date.." ref={el => (this.datePickerElement = el as HTMLElement)}></input>];
+    return [<input class={(this.classNames?.group?.control?.className || '') + (this.displayRequired == true ? ' df-is-required' : '')} type="text" placeholder="Select Date.." ref={el => (this.datePickerElement = el as HTMLElement)}></input>];
   }
 
   async componentWillRender() {
+    this.classNames = getClassNames()
     this.displayRequired = this.templateOptions?.required == true && !this.value;
   }
 

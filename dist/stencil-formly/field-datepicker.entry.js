@@ -1,5 +1,7 @@
-import { r as registerInstance, e as createEvent, h, g as getElement } from './index-c27fa563.js';
+import { r as registerInstance, e as createEvent, h, g as getElement } from './index-3259bf0a.js';
+import { g as getClassNames } from './style-c70c7711.js';
 import { l as loadCss, a as loadModule } from './loadScript-a05def91.js';
+import './styleStore-100e5755.js';
 
 const fieldDatepickerCss = "input[type=\"checkbox\"]{transform:scale(1)}custom-datepicker input{width:100px !important}";
 
@@ -39,10 +41,12 @@ const FieldDatepickerComponent = class {
     }
   }
   renderInput() {
-    return [h("input", { class: "input", type: "text", placeholder: "Select Date..", ref: el => (this.datePickerElement = el) })];
+    var _a, _b, _c;
+    return [h("input", { class: (((_c = (_b = (_a = this.classNames) === null || _a === void 0 ? void 0 : _a.group) === null || _b === void 0 ? void 0 : _b.control) === null || _c === void 0 ? void 0 : _c.className) || '') + (this.displayRequired == true ? ' df-is-required' : ''), type: "text", placeholder: "Select Date..", ref: el => (this.datePickerElement = el) })];
   }
   async componentWillRender() {
     var _a;
+    this.classNames = getClassNames();
     this.displayRequired = ((_a = this.templateOptions) === null || _a === void 0 ? void 0 : _a.required) == true && !this.value;
   }
   render() {

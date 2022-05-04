@@ -1,5 +1,6 @@
-import { r as registerInstance, e as createEvent, h } from './index-c27fa563.js';
+import { r as registerInstance, e as createEvent, h } from './index-3259bf0a.js';
 import { l as loadCss } from './loadScript-a05def91.js';
+import { s as state } from './styleStore-100e5755.js';
 
 const dynamicFormCss = ".df-fields-container{display:flex !important;flex-direction:row !important;flex-wrap:wrap !important;align-content:stretch !important}.df-is-required{border-color:#f14668 !important;color:#f14668 !important}.is-flex-grow-0{flex-grow:0 !important}.is-flex-grow-1{flex-grow:1 !important}.is-flex-grow-2{flex-grow:2 !important}.is-flex-grow-3{flex-grow:3 !important}.is-flex-grow-4{flex-grow:4 !important}.is-flex-grow-5{flex-grow:5 !important}";
 
@@ -10,8 +11,19 @@ const DynamicForm = class {
     this.model = {};
   }
   async componentWillLoad() {
-    await loadCss('https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css');
-    //await loadCss('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
+    let promises = [];
+    if (this.options.style) {
+      state.style = this.options.style;
+    }
+    if (state.style == 'bulma') {
+      promises.push(loadCss('https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'));
+    }
+    else if (state.style == 'bootstrap') {
+      promises.push(loadCss('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'));
+    }
+    if (promises.length) {
+      await Promise.all(promises);
+    }
   }
   renderField(element) {
     let isDisabled = false;

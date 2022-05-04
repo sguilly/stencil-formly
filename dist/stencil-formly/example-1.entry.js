@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-c27fa563.js';
+import { r as registerInstance, h } from './index-3259bf0a.js';
 
 const Example1 = class {
   constructor(hostRef) {
@@ -160,8 +160,9 @@ const Example1 = class {
   save() { }
   render() {
     return (h("div", { class: "m-4" }, h("dynamic-form", { model: this.model, fields: this.form, options: {
-        fieldClass: 'ml-4 mr-4',
+        //fieldClass: 'ml-4 mr-4',
         separator: true,
+        style: 'bulma'
       } }), ";"));
   }
 };

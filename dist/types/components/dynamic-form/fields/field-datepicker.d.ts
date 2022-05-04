@@ -8,6 +8,7 @@ export declare class FieldDatepickerComponent {
   datePickerElement: any;
   calendar: any;
   displayRequired: any;
+  classNames: any;
   dateStr: any;
   calendarHandler(newValue: boolean, _oldValue: boolean): void;
   componentWillLoad(): Promise<any[]>;
