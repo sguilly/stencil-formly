@@ -21,6 +21,19 @@
 | `customChange` |             | `CustomEvent<any>` |
 
 
+## Dependencies
+
+### Depends on
+
+- [field-container](..)
+
+### Graph
+```mermaid
+graph TD;
+  field-timepicker --> field-container
+  style field-timepicker fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

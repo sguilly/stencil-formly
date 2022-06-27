@@ -5,6 +5,18 @@ export declare class Example1 {
   };
   form: ({
     type: string;
+    templateOptions: {
+      html: string;
+      label?: undefined;
+      required?: undefined;
+      multiple?: undefined;
+      options?: undefined;
+    };
+    fields?: undefined;
+    key?: undefined;
+    hide?: undefined;
+  } | {
+    type: string;
     fields: {
       key: string;
       type: string;
@@ -14,8 +26,8 @@ export declare class Example1 {
       };
       size: string;
     }[];
-    key?: undefined;
     templateOptions?: undefined;
+    key?: undefined;
     hide?: undefined;
   } | {
     key: string;
@@ -23,6 +35,7 @@ export declare class Example1 {
     templateOptions: {
       label: string;
       required: boolean;
+      html?: undefined;
       multiple?: undefined;
       options?: undefined;
     };
@@ -51,8 +64,8 @@ export declare class Example1 {
         }[];
       };
     })[];
-    key?: undefined;
     templateOptions?: undefined;
+    key?: undefined;
     hide?: undefined;
   } | {
     key: string;
@@ -65,6 +78,7 @@ export declare class Example1 {
         value: boolean;
         label: string;
       }[];
+      html?: undefined;
     };
     fields?: undefined;
     hide?: undefined;
@@ -75,6 +89,7 @@ export declare class Example1 {
     templateOptions: {
       label: string;
       required: boolean;
+      html?: undefined;
       multiple?: undefined;
       options?: undefined;
     };
@@ -90,6 +105,7 @@ export declare class Example1 {
         value: number;
         label: string;
       }[];
+      html?: undefined;
     };
     fields?: undefined;
     hide?: undefined;

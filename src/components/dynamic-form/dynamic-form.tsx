@@ -23,6 +23,8 @@ export class DynamicForm {
       isDisabled = element.disable(this.model);
     }
 
+    element.templateOptions.requiredText = this.options?.requiredText || 'This field is required';
+
     const Tag = 'field-' + element.type;
 
     return (
@@ -55,14 +57,21 @@ export class DynamicForm {
           return [
             <div class="df-fields-container">
               {element.fields.map(element => {
-                return <div class={this.options?.fieldClass + ' is-flex-grow-' + (element.size || 1) + ' ' + (element.className || '')}>{this.renderField(element)}</div>;
+                return (
+                  <div class={(element.type != 'html' ? this.options?.fieldClass : '') + ' is-flex-grow-' + (element.size || 1) + ' ' + (element.className || '')}>
+                    {this.renderField(element)}
+                  </div>
+                );
               })}
             </div>,
 
             <hr style={{ 'text-align': 'left' }} />,
           ];
         } else {
-          return [<div class={this.options?.fieldClass}>{this.renderField(element)}</div>, this.options?.separator == true ? <hr style={{ 'text-align': 'left' }} /> : null];
+          return [
+            <div class={element.type != 'html' ? this.options?.fieldClass : ''}>{this.renderField(element)}</div>,
+            this.options?.separator == true && element.type != 'html' ? <hr style={{ 'text-align': 'left' }} /> : null,
+          ];
         }
       }
     });

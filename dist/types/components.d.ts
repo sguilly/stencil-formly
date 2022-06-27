@@ -99,6 +99,9 @@ export namespace Components {
         "templateOptions": any;
         "value": any;
     }
+    interface FieldHtml {
+        "templateOptions": any;
+    }
     interface FieldInput {
         "disabled": boolean;
         "templateOptions": any;
@@ -120,6 +123,11 @@ export namespace Components {
         "value": any;
     }
     interface FieldTextarea {
+        "disabled": boolean;
+        "templateOptions": any;
+        "value": any;
+    }
+    interface FieldTimepicker {
         "disabled": boolean;
         "templateOptions": any;
         "value": any;
@@ -168,6 +176,12 @@ declare global {
         prototype: HTMLFieldDocsElement;
         new (): HTMLFieldDocsElement;
     };
+    interface HTMLFieldHtmlElement extends Components.FieldHtml, HTMLStencilElement {
+    }
+    var HTMLFieldHtmlElement: {
+        prototype: HTMLFieldHtmlElement;
+        new (): HTMLFieldHtmlElement;
+    };
     interface HTMLFieldInputElement extends Components.FieldInput, HTMLStencilElement {
     }
     var HTMLFieldInputElement: {
@@ -198,6 +212,12 @@ declare global {
         prototype: HTMLFieldTextareaElement;
         new (): HTMLFieldTextareaElement;
     };
+    interface HTMLFieldTimepickerElement extends Components.FieldTimepicker, HTMLStencilElement {
+    }
+    var HTMLFieldTimepickerElement: {
+        prototype: HTMLFieldTimepickerElement;
+        new (): HTMLFieldTimepickerElement;
+    };
     interface HTMLElementTagNameMap {
         "choices-js": HTMLChoicesJsElement;
         "dynamic-form": HTMLDynamicFormElement;
@@ -206,11 +226,13 @@ declare global {
         "field-container": HTMLFieldContainerElement;
         "field-datepicker": HTMLFieldDatepickerElement;
         "field-docs": HTMLFieldDocsElement;
+        "field-html": HTMLFieldHtmlElement;
         "field-input": HTMLFieldInputElement;
         "field-phonenumber": HTMLFieldPhonenumberElement;
         "field-select": HTMLFieldSelectElement;
         "field-slider": HTMLFieldSliderElement;
         "field-textarea": HTMLFieldTextareaElement;
+        "field-timepicker": HTMLFieldTimepickerElement;
     }
 }
 declare namespace LocalJSX {
@@ -293,6 +315,9 @@ declare namespace LocalJSX {
         "templateOptions"?: any;
         "value"?: any;
     }
+    interface FieldHtml {
+        "templateOptions"?: any;
+    }
     interface FieldInput {
         "disabled"?: boolean;
         "onCustomChange"?: (event: CustomEvent<any>) => void;
@@ -323,6 +348,12 @@ declare namespace LocalJSX {
         "templateOptions"?: any;
         "value"?: any;
     }
+    interface FieldTimepicker {
+        "disabled"?: boolean;
+        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        "templateOptions"?: any;
+        "value"?: any;
+    }
     interface IntrinsicElements {
         "choices-js": ChoicesJs;
         "dynamic-form": DynamicForm;
@@ -331,11 +362,13 @@ declare namespace LocalJSX {
         "field-container": FieldContainer;
         "field-datepicker": FieldDatepicker;
         "field-docs": FieldDocs;
+        "field-html": FieldHtml;
         "field-input": FieldInput;
         "field-phonenumber": FieldPhonenumber;
         "field-select": FieldSelect;
         "field-slider": FieldSlider;
         "field-textarea": FieldTextarea;
+        "field-timepicker": FieldTimepicker;
     }
 }
 export { LocalJSX as JSX };
@@ -349,11 +382,13 @@ declare module "@stencil/core" {
             "field-container": LocalJSX.FieldContainer & JSXBase.HTMLAttributes<HTMLFieldContainerElement>;
             "field-datepicker": LocalJSX.FieldDatepicker & JSXBase.HTMLAttributes<HTMLFieldDatepickerElement>;
             "field-docs": LocalJSX.FieldDocs & JSXBase.HTMLAttributes<HTMLFieldDocsElement>;
+            "field-html": LocalJSX.FieldHtml & JSXBase.HTMLAttributes<HTMLFieldHtmlElement>;
             "field-input": LocalJSX.FieldInput & JSXBase.HTMLAttributes<HTMLFieldInputElement>;
             "field-phonenumber": LocalJSX.FieldPhonenumber & JSXBase.HTMLAttributes<HTMLFieldPhonenumberElement>;
             "field-select": LocalJSX.FieldSelect & JSXBase.HTMLAttributes<HTMLFieldSelectElement>;
             "field-slider": LocalJSX.FieldSlider & JSXBase.HTMLAttributes<HTMLFieldSliderElement>;
             "field-textarea": LocalJSX.FieldTextarea & JSXBase.HTMLAttributes<HTMLFieldTextareaElement>;
+            "field-timepicker": LocalJSX.FieldTimepicker & JSXBase.HTMLAttributes<HTMLFieldTimepickerElement>;
         }
     }
 }

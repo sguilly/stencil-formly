@@ -16,7 +16,7 @@ export class FieldContainer {
         <div class="control">
           <slot />
         </div>
-        {this.displayRequired ? <p class="help df-is-required">This field is required</p> : ''}
+        {this.displayRequired ? <p class="help df-is-required">{this.templateOptions.requiredText}</p> : ''}
       </div>
     );
   }
@@ -30,7 +30,7 @@ export class FieldContainer {
 
         <slot />
 
-        <small class="form-text text-muted">{this.displayRequired ? <p class="help df-is-required">This field is required</p> : ''}</small>
+        <small class="form-text text-muted">{this.displayRequired ? <p class="help df-is-required">{this.templateOptions.requiredText}</p> : ''}</small>
       </div>
     );
   }

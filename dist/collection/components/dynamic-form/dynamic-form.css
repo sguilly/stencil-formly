@@ -1,0 +1,35 @@
+.df-fields-container {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-content: stretch !important;
+}
+
+.df-is-required {
+  border-color: #f14668 !important;
+  color: #f14668 !important;
+}
+
+.is-flex-grow-0 {
+  flex-grow: 0 !important;
+}
+
+.is-flex-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.is-flex-grow-2 {
+  flex-grow: 2 !important;
+}
+
+.is-flex-grow-3 {
+  flex-grow: 3 !important;
+}
+
+.is-flex-grow-4 {
+  flex-grow: 4 !important;
+}
+
+.is-flex-grow-5 {
+  flex-grow: 5 !important;
+}

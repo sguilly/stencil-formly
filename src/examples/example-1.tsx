@@ -11,6 +11,21 @@ export class Example1 {
 
   form = [
     {
+      type: 'html',
+      templateOptions: {
+        html: `
+        <article class="message is-success mb-4">
+          <div class="message-header">
+            <p>Success</p>
+            
+          </div>
+          <div class="message-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+          </div>
+        </article>`,
+      },
+    },
+    {
       type: 'line',
       fields: [
         {
@@ -41,17 +56,38 @@ export class Example1 {
         required: true,
       },
     },
+
+    {
+      type: 'html',
+      templateOptions: {
+        html: `
+        <article class="message is-warning mb-4">
+          <div class="message-header">
+            <p>Warning header</p>
+            
+          </div>
+         
+        </article>`,
+      },
+    },
     {
       type: 'line',
       fields: [
-        
         {
           key: 'birthday',
           type: 'datepicker',
           templateOptions: {
             label: 'Birthday Date',
             required: true,
-          }
+          },
+        },
+        {
+          key: 'birthdayTime',
+          type: 'timepicker',
+          templateOptions: {
+            label: 'Birthday Time',
+            required: true,
+          },
         },
         {
           key: 'type1',
@@ -73,7 +109,7 @@ export class Example1 {
               {
                 id: 3,
                 value: 3,
-                label: "Spain",
+                label: 'Spain',
               },
             ],
           },
@@ -100,7 +136,7 @@ export class Example1 {
       key: 'displayDocs',
       type: 'checkbox',
       templateOptions: {
-        label: "Do you want to add documents ?",
+        label: 'Do you want to add documents ?',
         required: true,
         multiple: false,
         options: [
@@ -130,7 +166,7 @@ export class Example1 {
       key: 'level',
       type: 'checkbox',
       templateOptions: {
-        label: "Level",
+        label: 'Level',
         required: false,
         multiple: true,
         options: [
@@ -156,7 +192,7 @@ export class Example1 {
         label: 'Notes',
         required: true,
       },
-    }, 
+    },
   ];
 
   save() {}
@@ -170,6 +206,7 @@ export class Example1 {
           options={{
             fieldClass: 'ml-4 mr-4',
             separator: true,
+            requiredText: 'This field is required !',
           }}
         ></dynamic-form>
         ;
