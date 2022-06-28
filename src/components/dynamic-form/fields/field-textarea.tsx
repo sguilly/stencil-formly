@@ -1,4 +1,5 @@
 import { Component, h, State, Prop, Event, EventEmitter } from '@stencil/core';
+import { getClassNames } from '../../../styles/style';
 
 @Component({
   tag: 'field-textarea',
@@ -11,12 +12,13 @@ export class FieldInput {
   @Event() customChange: EventEmitter<any>;
 
   displayRequired;
+  classNames
 
   renderInput() {
     return (
       <textarea
         disabled={this.disabled}
-        class={'textarea ' + (this.displayRequired == true ? ' df-is-required' : '')}
+        class={'textarea ' + (this.classNames?.group?.control?.className || '') + (this.displayRequired == true ? ' df-is-required' : '')} 
         value={this.value}
         onInput={(ev: any) => {
           console.log(ev.target.value);
@@ -27,6 +29,7 @@ export class FieldInput {
   }
 
   async componentWillRender() {
+    this.classNames = getClassNames()
     this.displayRequired = this.templateOptions?.required == true && !this.value;
   }
 

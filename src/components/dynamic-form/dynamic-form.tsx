@@ -1,6 +1,8 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 import { loadCss } from '../../utils/loadScript';
 
+import { state, onChange } from '../../stores/styleStore';
+
 @Component({
   tag: 'dynamic-form',
   styleUrl: 'dynamic-form.css',
@@ -13,8 +15,20 @@ export class DynamicForm {
   @Event() event: EventEmitter<any>;
 
   async componentWillLoad() {
-    await loadCss('https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css');
-    //await loadCss('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
+    let promises = [];
+    if (this.options.style) {
+      state.style = this.options.style;
+    }
+
+    if (state.style == 'bulma') {
+      promises.push(loadCss('https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'));
+    } else if (state.style == 'bootstrap') {
+      promises.push(loadCss('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'));
+    }
+
+    if (promises.length) {
+      await Promise.all(promises);
+    }
   }
 
   renderField(element) {
@@ -65,12 +79,12 @@ export class DynamicForm {
               })}
             </div>,
 
-            <hr style={{ 'text-align': 'left' }} />,
+            element.separator == true ? <hr style={{ 'text-align': 'left' }} /> : null,
           ];
         } else {
           return [
             <div class={element.type != 'html' ? this.options?.fieldClass : ''}>{this.renderField(element)}</div>,
-            this.options?.separator == true && element.type != 'html' ? <hr style={{ 'text-align': 'left' }} /> : null,
+            element.separator == true ? <hr style={{ 'text-align': 'left' }} /> : null,
           ];
         }
       }

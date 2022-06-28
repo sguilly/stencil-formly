@@ -1,7 +1,0 @@
-input[type="checkbox"] {
-  transform: scale(1);
-}
-
-custom-datepicker input {
-  width: 100px !important;
-}

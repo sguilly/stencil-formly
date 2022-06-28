@@ -1,1 +1,0 @@
-import{r,h as s}from"./p-03e0b87e.js";const t=class{constructor(s){r(this,s),this.templateOptions={}}render(){return s("div",{innerHTML:this.templateOptions.html})}};export{t as field_html}

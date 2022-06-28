@@ -8,4 +8,4 @@ onChange('style', value => {
   state.style = value;
 });
 
-export default { state, onChange };
+export  { state, onChange };

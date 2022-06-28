@@ -5,6 +5,7 @@ export declare class FieldInput {
   templateOptions: any;
   customChange: EventEmitter<any>;
   displayRequired: any;
+  classNames: any;
   renderInput(): any;
   componentWillRender(): Promise<void>;
   render(): any;

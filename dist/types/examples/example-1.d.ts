@@ -12,11 +12,13 @@ export declare class Example1 {
       multiple?: undefined;
       options?: undefined;
     };
+    separator?: undefined;
     fields?: undefined;
     key?: undefined;
     hide?: undefined;
   } | {
     type: string;
+    separator: boolean;
     fields: {
       key: string;
       type: string;
@@ -32,6 +34,7 @@ export declare class Example1 {
   } | {
     key: string;
     type: string;
+    separator: boolean;
     templateOptions: {
       label: string;
       required: boolean;
@@ -43,6 +46,7 @@ export declare class Example1 {
     hide?: undefined;
   } | {
     type: string;
+    separator: boolean;
     fields: ({
       key: string;
       type: string;
@@ -73,6 +77,19 @@ export declare class Example1 {
     templateOptions: {
       label: string;
       required: boolean;
+      html?: undefined;
+      multiple?: undefined;
+      options?: undefined;
+    };
+    separator?: undefined;
+    fields?: undefined;
+    hide?: undefined;
+  } | {
+    key: string;
+    type: string;
+    templateOptions: {
+      label: string;
+      required: boolean;
       multiple: boolean;
       options: {
         value: boolean;
@@ -80,6 +97,7 @@ export declare class Example1 {
       }[];
       html?: undefined;
     };
+    separator?: undefined;
     fields?: undefined;
     hide?: undefined;
   } | {
@@ -93,6 +111,7 @@ export declare class Example1 {
       multiple?: undefined;
       options?: undefined;
     };
+    separator?: undefined;
     fields?: undefined;
   } | {
     key: string;
@@ -107,6 +126,7 @@ export declare class Example1 {
       }[];
       html?: undefined;
     };
+    separator?: undefined;
     fields?: undefined;
     hide?: undefined;
   })[];

@@ -1,1 +1,129 @@
-import{p as e,b as t}from"./p-03e0b87e.js";(()=>{const t=import.meta.url,l={};return""!==t&&(l.resourcesUrl=new URL(".",t).href),e(l)})().then((e=>t([["p-d29435d7",[[4,"field-container",{templateOptions:[8,"template-options"],displayRequired:[4,"display-required"]}]]],["p-3b57c357",[[0,"field-select",{value:[8],disabled:[4],templateOptions:[8,"template-options"]}]]],["p-664bce48",[[0,"field-checkbox",{value:[8],templateOptions:[8,"template-options"]}]]],["p-5a13b35d",[[0,"field-datepicker",{value:[8],disabled:[4],templateOptions:[8,"template-options"],dateStr:[32]}]]],["p-80513174",[[0,"field-docs",{value:[8],disabled:[4],templateOptions:[8,"template-options"],docs:[32]}]]],["p-51712c95",[[0,"field-input",{value:[8],disabled:[4],templateOptions:[8,"template-options"]}]]],["p-ca08cf7a",[[0,"field-phonenumber",{value:[8],disabled:[4],templateOptions:[8,"template-options"]}]]],["p-b788ddf9",[[0,"field-slider",{value:[8],disabled:[4],templateOptions:[8,"template-options"]}]]],["p-707e45f2",[[0,"field-textarea",{value:[8],disabled:[4],templateOptions:[8,"template-options"]}]]],["p-9535e8ad",[[0,"field-timepicker",{value:[8],disabled:[4],templateOptions:[8,"template-options"],dateStr:[32]}]]],["p-028bf652",[[0,"field-html",{templateOptions:[8,"template-options"]}]]],["p-cc89e71c",[[0,"example-1"],[0,"dynamic-form",{model:[16],fields:[8],options:[8]}]]],["p-94d12013",[[0,"choices-js",{valueByDefault:[8,"value-by-default"],type:[1],value:[1],name:[1],disable:[4],silent:[4],items:[16],choices:[16],renderChoiceLimit:[2,"render-choice-limit"],maxItemCount:[2,"max-item-count"],addItems:[4,"add-items"],removeItems:[4,"remove-items"],removeItemButton:[4,"remove-item-button"],editItems:[4,"edit-items"],duplicateItemsAllowed:[4,"duplicate-items-allowed"],delimiter:[1],paste:[4],searchEnabled:[4,"search-enabled"],searchChoices:[4,"search-choices"],searchFields:[1,"search-fields"],searchFloor:[2,"search-floor"],searchResultLimit:[2,"search-result-limit"],position:[1],resetScrollPosition:[4,"reset-scroll-position"],shouldSort:[4,"should-sort"],shouldSortItems:[4,"should-sort-items"],sorter:[16],placeholder:[8],placeholderValue:[1,"placeholder-value"],searchPlaceholderValue:[1,"search-placeholder-value"],prependValue:[1,"prepend-value"],appendValue:[1,"append-value"],renderSelectedChoices:[1,"render-selected-choices"],loadingText:[1,"loading-text"],noResultsText:[1,"no-results-text"],noChoicesText:[1,"no-choices-text"],itemSelectText:[1,"item-select-text"],addItemText:[1,"add-item-text"],maxItemText:[1,"max-item-text"],uniqueItemText:[1,"unique-item-text"],classNames:[16],fuseOptions:[16],addItemFilter:[1,"add-item-filter"],customAddItemText:[1,"custom-add-item-text"],callbackOnInit:[16],callbackOnCreateTemplates:[16],valueComparer:[16],highlightItem:[64],unhighlightItem:[64],highlightAll:[64],unhighlightAll:[64],removeActiveItemsByValue:[64],removeActiveItems:[64],removeHighlightedItems:[64],showDropdown:[64],hideDropdown:[64],getValue:[64],setValue:[64],setChoiceByValue:[64],setChoices:[64],clearChoices:[64],clearStore:[64],clearInput:[64],enable:[64],ajax:[64]}]]]],e)));
+import { B as BUILD, c as consoleDevInfo, p as plt, w as win, H, d as doc, N as NAMESPACE, a as promiseResolve, b as bootstrapLazy } from './index-3259bf0a.js';
+import { g as globalScripts } from './app-globals-0f993ce5.js';
+
+/*
+ Stencil Client Patch Browser v2.15.1 | MIT Licensed | https://stenciljs.com
+ */
+const getDynamicImportFunction = (namespace) => `__sc_import_${namespace.replace(/\s|-/g, '_')}`;
+const patchBrowser = () => {
+    // NOTE!! This fn cannot use async/await!
+    if (BUILD.isDev && !BUILD.isTesting) {
+        consoleDevInfo('Running in development mode.');
+    }
+    if (BUILD.cssVarShim) {
+        // shim css vars
+        plt.$cssShim$ = win.__cssshim;
+    }
+    if (BUILD.cloneNodeFix) {
+        // opted-in to polyfill cloneNode() for slot polyfilled components
+        patchCloneNodeFix(H.prototype);
+    }
+    if (BUILD.profile && !performance.mark) {
+        // not all browsers support performance.mark/measure (Safari 10)
+        // because the mark/measure APIs are designed to write entries to a buffer in the browser that does not exist,
+        // simply stub the implementations out.
+        // TODO(STENCIL-323): Remove this patch when support for older browsers is removed (breaking)
+        // @ts-ignore
+        performance.mark = performance.measure = () => {
+            /*noop*/
+        };
+        performance.getEntriesByName = () => [];
+    }
+    // @ts-ignore
+    const scriptElm = BUILD.scriptDataOpts || BUILD.safari10 || BUILD.dynamicImportShim
+        ? Array.from(doc.querySelectorAll('script')).find((s) => new RegExp(`\/${NAMESPACE}(\\.esm)?\\.js($|\\?|#)`).test(s.src) ||
+            s.getAttribute('data-stencil-namespace') === NAMESPACE)
+        : null;
+    const importMeta = import.meta.url;
+    const opts = BUILD.scriptDataOpts ? scriptElm['data-opts'] || {} : {};
+    if (BUILD.safari10 && 'onbeforeload' in scriptElm && !history.scrollRestoration /* IS_ESM_BUILD */) {
+        // Safari < v11 support: This IF is true if it's Safari below v11.
+        // This fn cannot use async/await since Safari didn't support it until v11,
+        // however, Safari 10 did support modules. Safari 10 also didn't support "nomodule",
+        // so both the ESM file and nomodule file would get downloaded. Only Safari
+        // has 'onbeforeload' in the script, and "history.scrollRestoration" was added
+        // to Safari in v11. Return a noop then() so the async/await ESM code doesn't continue.
+        // IS_ESM_BUILD is replaced at build time so this check doesn't happen in systemjs builds.
+        return {
+            then() {
+                /* promise noop */
+            },
+        };
+    }
+    if (!BUILD.safari10 && importMeta !== '') {
+        opts.resourcesUrl = new URL('.', importMeta).href;
+    }
+    else if (BUILD.dynamicImportShim || BUILD.safari10) {
+        opts.resourcesUrl = new URL('.', new URL(scriptElm.getAttribute('data-resources-url') || scriptElm.src, win.location.href)).href;
+        if (BUILD.dynamicImportShim) {
+            patchDynamicImport(opts.resourcesUrl, scriptElm);
+        }
+        if (BUILD.dynamicImportShim && !win.customElements) {
+            // module support, but no custom elements support (Old Edge)
+            // @ts-ignore
+            return import(/* webpackChunkName: "polyfills-dom" */ './dom-1d32cb7b.js').then(() => opts);
+        }
+    }
+    return promiseResolve(opts);
+};
+const patchDynamicImport = (base, orgScriptElm) => {
+    const importFunctionName = getDynamicImportFunction(NAMESPACE);
+    try {
+        // test if this browser supports dynamic imports
+        // There is a caching issue in V8, that breaks using import() in Function
+        // By generating a random string, we can workaround it
+        // Check https://bugs.chromium.org/p/chromium/issues/detail?id=990810 for more info
+        win[importFunctionName] = new Function('w', `return import(w);//${Math.random()}`);
+    }
+    catch (e) {
+        // this shim is specifically for browsers that do support "esm" imports
+        // however, they do NOT support "dynamic" imports
+        // basically this code is for old Edge, v18 and below
+        const moduleMap = new Map();
+        win[importFunctionName] = (src) => {
+            const url = new URL(src, base).href;
+            let mod = moduleMap.get(url);
+            if (!mod) {
+                const script = doc.createElement('script');
+                script.type = 'module';
+                script.crossOrigin = orgScriptElm.crossOrigin;
+                script.src = URL.createObjectURL(new Blob([`import * as m from '${url}'; window.${importFunctionName}.m = m;`], {
+                    type: 'application/javascript',
+                }));
+                mod = new Promise((resolve) => {
+                    script.onload = () => {
+                        resolve(win[importFunctionName].m);
+                        script.remove();
+                    };
+                });
+                moduleMap.set(url, mod);
+                doc.head.appendChild(script);
+            }
+            return mod;
+        };
+    }
+};
+const patchCloneNodeFix = (HTMLElementPrototype) => {
+    const nativeCloneNodeFn = HTMLElementPrototype.cloneNode;
+    HTMLElementPrototype.cloneNode = function (deep) {
+        if (this.nodeName === 'TEMPLATE') {
+            return nativeCloneNodeFn.call(this, deep);
+        }
+        const clonedNode = nativeCloneNodeFn.call(this, false);
+        const srcChildNodes = this.childNodes;
+        if (deep) {
+            for (let i = 0; i < srcChildNodes.length; i++) {
+                // Node.ATTRIBUTE_NODE === 2, and checking because IE11
+                if (srcChildNodes[i].nodeType !== 2) {
+                    clonedNode.appendChild(srcChildNodes[i].cloneNode(true));
+                }
+            }
+        }
+        return clonedNode;
+    };
+};
+
+patchBrowser().then(options => {
+  globalScripts();
+  return bootstrapLazy([["field-select",[[0,"field-select",{"value":[8],"disabled":[4],"templateOptions":[8,"template-options"]}]]],["example-1",[[0,"example-1"]]],["field-container",[[4,"field-container",{"templateOptions":[8,"template-options"],"displayRequired":[4,"display-required"]}]]],["field-checkbox",[[0,"field-checkbox",{"value":[8],"templateOptions":[8,"template-options"]}]]],["field-datepicker",[[0,"field-datepicker",{"value":[8],"disabled":[4],"templateOptions":[8,"template-options"],"dateStr":[32]}]]],["field-docs",[[0,"field-docs",{"value":[8],"disabled":[4],"templateOptions":[8,"template-options"],"docs":[32]}]]],["field-input",[[0,"field-input",{"value":[8],"disabled":[4],"templateOptions":[8,"template-options"]}]]],["field-phonenumber",[[0,"field-phonenumber",{"value":[8],"disabled":[4],"templateOptions":[8,"template-options"]}]]],["field-slider",[[0,"field-slider",{"value":[8],"disabled":[4],"templateOptions":[8,"template-options"]}]]],["field-textarea",[[0,"field-textarea",{"value":[8],"disabled":[4],"templateOptions":[8,"template-options"]}]]],["field-timepicker",[[0,"field-timepicker",{"value":[8],"disabled":[4],"templateOptions":[8,"template-options"],"dateStr":[32]}]]],["field-html",[[0,"field-html",{"templateOptions":[8,"template-options"]}]]],["choices-js",[[0,"choices-js",{"valueByDefault":[8,"value-by-default"],"type":[1],"value":[1],"name":[1],"disable":[4],"silent":[4],"items":[16],"choices":[16],"renderChoiceLimit":[2,"render-choice-limit"],"maxItemCount":[2,"max-item-count"],"addItems":[4,"add-items"],"removeItems":[4,"remove-items"],"removeItemButton":[4,"remove-item-button"],"editItems":[4,"edit-items"],"duplicateItemsAllowed":[4,"duplicate-items-allowed"],"delimiter":[1],"paste":[4],"searchEnabled":[4,"search-enabled"],"searchChoices":[4,"search-choices"],"searchFields":[1,"search-fields"],"searchFloor":[2,"search-floor"],"searchResultLimit":[2,"search-result-limit"],"position":[1],"resetScrollPosition":[4,"reset-scroll-position"],"shouldSort":[4,"should-sort"],"shouldSortItems":[4,"should-sort-items"],"sorter":[16],"placeholder":[8],"placeholderValue":[1,"placeholder-value"],"searchPlaceholderValue":[1,"search-placeholder-value"],"prependValue":[1,"prepend-value"],"appendValue":[1,"append-value"],"renderSelectedChoices":[1,"render-selected-choices"],"loadingText":[1,"loading-text"],"noResultsText":[1,"no-results-text"],"noChoicesText":[1,"no-choices-text"],"itemSelectText":[1,"item-select-text"],"addItemText":[1,"add-item-text"],"maxItemText":[1,"max-item-text"],"uniqueItemText":[1,"unique-item-text"],"classNames":[16],"fuseOptions":[16],"addItemFilter":[1,"add-item-filter"],"customAddItemText":[1,"custom-add-item-text"],"callbackOnInit":[16],"callbackOnCreateTemplates":[16],"valueComparer":[16],"highlightItem":[64],"unhighlightItem":[64],"highlightAll":[64],"unhighlightAll":[64],"removeActiveItemsByValue":[64],"removeActiveItems":[64],"removeHighlightedItems":[64],"showDropdown":[64],"hideDropdown":[64],"getValue":[64],"setValue":[64],"setChoiceByValue":[64],"setChoices":[64],"clearChoices":[64],"clearStore":[64],"clearInput":[64],"enable":[64],"ajax":[64]}]]],["dynamic-form",[[0,"dynamic-form",{"model":[16],"fields":[8],"options":[8]}]]]], options);
+});

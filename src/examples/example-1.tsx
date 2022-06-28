@@ -16,7 +16,7 @@ export class Example1 {
         html: `
         <article class="message is-success mb-4">
           <div class="message-header">
-            <p>Success</p>
+            <p>Green Header</p>
             
           </div>
           <div class="message-body">
@@ -27,6 +27,7 @@ export class Example1 {
     },
     {
       type: 'line',
+      separator: true,
       fields: [
         {
           key: 'firstName',
@@ -51,6 +52,7 @@ export class Example1 {
     {
       key: 'email',
       type: 'input',
+      separator: true,
       templateOptions: {
         label: 'Email',
         required: true,
@@ -63,7 +65,7 @@ export class Example1 {
         html: `
         <article class="message is-warning mb-4">
           <div class="message-header">
-            <p>Warning header</p>
+            <p>Yellow header</p>
             
           </div>
          
@@ -72,6 +74,7 @@ export class Example1 {
     },
     {
       type: 'line',
+      separator: true,
       fields: [
         {
           key: 'birthday',
@@ -205,8 +208,8 @@ export class Example1 {
           fields={this.form}
           options={{
             fieldClass: 'ml-4 mr-4',
-            separator: true,
             requiredText: 'This field is required !',
+            style: 'bulma',
           }}
         ></dynamic-form>
         ;
