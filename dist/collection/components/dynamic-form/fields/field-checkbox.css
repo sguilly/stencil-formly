@@ -1,0 +1,17 @@
+.df-checkboxes-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.df-checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+.df-checkbox-input {
+  margin-left: 10px;
+  margin-right: 10px;
+}

@@ -1,0 +1,1 @@
+import{s as a}from"./p-772cffa5.js";function e(){return"bulma"==a.style?{group:{className:"field p-4",label:{className:"label"},control:{className:"input"},helper:{className:"help is-danger"}}}:"bootstrap"==a.style?{group:{className:"form-group m-2",label:{className:"label"},control:{className:"form-control"},helper:{className:"form-text text-danger"}}}:void 0}export{e as g}
