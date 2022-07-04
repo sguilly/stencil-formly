@@ -1,16 +1,8 @@
-import {
-  h,
-  Component,
-  Element,
-  Method,
-  Prop,
-  Event,
-  EventEmitter,
-} from "@stencil/core";
+import { h, Component, Element, Method, Prop, Event, EventEmitter } from '@stencil/core';
 
-import { loadScript, loadCss } from "../../utils/loadScript";
+import { loadScript, loadCss } from '../../utils/loadScript';
 
-import { HTMLStencilElement } from "@stencil/core/internal";
+import { HTMLStencilElement } from '@stencil/core/internal';
 import {
   AjaxFn,
   ClassNames,
@@ -28,14 +20,14 @@ import {
   UniqueItemText,
   ValueCompareFunction,
   CustomAddItemText,
-} from "./interfaces";
-import { getValues, filterObject, isDefined } from "./utils";
+} from './interfaces';
+import { getValues, filterObject, isDefined } from './utils';
 
 declare var Choices;
 
 @Component({
-  tag: "choices-js",
-  styleUrl: "choices-js.scss",
+  tag: 'choices-js',
+  styleUrl: 'choices-js.css',
   shadow: false,
 })
 // implements IChoicesProps, IChoicesMethods
@@ -44,7 +36,7 @@ export class ChoicesJSStencil {
 
   @Event() callbackChoice: EventEmitter<any>;
 
-  @Prop() public type?: "single" | "multiple" | "text";
+  @Prop() public type?: 'single' | 'multiple' | 'text';
   @Prop() public value: string;
   @Prop() public name: string;
   @Prop() public disable: boolean;
@@ -66,7 +58,7 @@ export class ChoicesJSStencil {
   @Prop() public searchFields: Array<string> | string;
   @Prop() public searchFloor: number;
   @Prop() public searchResultLimit: number;
-  @Prop() public position: "auto" | "top" | "bottom";
+  @Prop() public position: 'auto' | 'top' | 'bottom';
   @Prop() public resetScrollPosition: boolean;
   @Prop() public shouldSort: boolean;
   @Prop() public shouldSortItems: boolean;
@@ -76,7 +68,7 @@ export class ChoicesJSStencil {
   @Prop() public searchPlaceholderValue: string;
   @Prop() public prependValue: string;
   @Prop() public appendValue: string;
-  @Prop() public renderSelectedChoices: "always" | "auto";
+  @Prop() public renderSelectedChoices: 'always' | 'auto';
   @Prop() public loadingText: string;
   @Prop() public noResultsText: string | NoResultsTextFn;
   @Prop() public noChoicesText: string | NoChoicesTextFn;
@@ -98,24 +90,12 @@ export class ChoicesJSStencil {
   private element;
 
   async componentWillRender() {
-    if (typeof Choices == "undefined") {
+    if (typeof Choices == 'undefined') {
       let promises = [];
-      const version = "10.1.0";
+      const version = '10.1.0';
 
-      promises.push(
-        loadCss(
-          "https://cdn.jsdelivr.net/npm/choices.js@" +
-            version +
-            "/public/assets/styles/choices.min.css"
-        )
-      );
-      promises.push(
-        loadScript(
-          "https://cdn.jsdelivr.net/npm/choices.js@" +
-            version +
-            "/public/assets/scripts/choices.min.js"
-        )
-      );
+      promises.push(loadCss('https://cdn.jsdelivr.net/npm/choices.js@' + version + '/public/assets/styles/choices.min.css'));
+      promises.push(loadScript('https://cdn.jsdelivr.net/npm/choices.js@' + version + '/public/assets/scripts/choices.min.js'));
 
       await Promise.all(promises);
     }
@@ -204,12 +184,7 @@ export class ChoicesJSStencil {
   }
 
   @Method()
-  public async setChoices(
-    choices: Array<any>,
-    value: string,
-    label: string,
-    replaceChoices?: boolean
-  ) {
+  public async setChoices(choices: Array<any>, value: string, label: string, replaceChoices?: boolean) {
     this.choice.setChoices(choices, value, label, replaceChoices);
 
     return this;
@@ -263,13 +238,13 @@ export class ChoicesJSStencil {
   }
 
   handleSelect(event) {
-    console.log("choices ev", event.target.value);
+    console.log('choices ev', event.target.value);
   }
 
   protected render(): any {
     const attributes = {
-      "data-selector": "root",
-      name: this.name || null,
+      'data-selector': 'root',
+      'name': this.name || null,
     };
 
     // destroy choices element to restore previous dom structure
@@ -277,34 +252,23 @@ export class ChoicesJSStencil {
     this.destroy();
 
     switch (this.type) {
-      case "single":
+      case 'single':
         this.element = (
-          <select onInput={(event) => this.handleSelect(event)} {...attributes}>
+          <select onInput={event => this.handleSelect(event)} {...attributes}>
             {this.value ? this.createSelectOptions(this.value) : null}
           </select>
         );
         break;
-      case "multiple":
+      case 'multiple':
         this.element = (
-          <select
-            onInput={(event) => this.handleSelect(event)}
-            {...attributes}
-            multiple
-          >
+          <select onInput={event => this.handleSelect(event)} {...attributes} multiple>
             {this.value ? this.createSelectOptions(this.value) : null}
           </select>
         );
         break;
-      case "text":
+      case 'text':
       default:
-        this.element = (
-          <input
-            type="text"
-            onInput={(event) => this.handleSelect(event)}
-            value={this.value}
-            {...attributes}
-          />
-        );
+        this.element = <input type="text" onInput={event => this.handleSelect(event)} value={this.value} {...attributes} />;
         break;
     }
 
@@ -336,10 +300,7 @@ export class ChoicesJSStencil {
       shouldSortItems: this.shouldSortItems,
       sorter: this.sorter,
       placeholder: true,
-      placeholderValue:
-        this.placeholderValue ||
-        (typeof this.placeholder === "string" && this.placeholder) ||
-        " ",
+      placeholderValue: this.placeholderValue || (typeof this.placeholder === 'string' && this.placeholder) || ' ',
       searchPlaceholderValue: this.searchPlaceholderValue,
       prependValue: this.prependValue,
       appendValue: this.appendValue,
@@ -361,17 +322,14 @@ export class ChoicesJSStencil {
     };
     const settings = filterObject(props, isDefined);
 
-    console.log("new choice", settings);
-    this.choice = new Choices(
-      this.root.querySelector('[data-selector="root"]'),
-      settings
-    );
+    console.log('new choice', settings);
+    this.choice = new Choices(this.root.querySelector('[data-selector="root"]'), settings);
 
     if (this.valueByDefault) {
-      console.log("set default value", this.valueByDefault);
+      console.log('set default value', this.valueByDefault);
       this.choice.setChoiceByValue(this.valueByDefault);
     } else {
-      console.log("no default value");
+      console.log('no default value');
       //this.choice.clearChoices();
     }
 
@@ -380,12 +338,12 @@ export class ChoicesJSStencil {
     }
 
     this.choice.passedElement.element.addEventListener(
-      "choice",
-      (event) => {
+      'choice',
+      event => {
         // do something creative here...
         this.callbackChoice.emit(event.detail.choice);
       },
-      false
+      false,
     );
   }
 
@@ -400,11 +358,7 @@ export class ChoicesJSStencil {
     }
   }
 
-  private createSelectOptions(
-    values: string | Array<string>
-  ): Array<HTMLStencilElement> {
-    return getValues(values).map((value) => (
-      <option value={value}>{value}</option>
-    ));
+  private createSelectOptions(values: string | Array<string>): Array<HTMLStencilElement> {
+    return getValues(values).map(value => <option value={value}>{value}</option>);
   }
 }
