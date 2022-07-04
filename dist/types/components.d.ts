@@ -42,7 +42,7 @@ export namespace Components {
         "paste": boolean;
         "placeholder": boolean | string;
         "placeholderValue": string;
-        "position": "auto" | "top" | "bottom";
+        "position": 'auto' | 'top' | 'bottom';
         "prependValue": string;
         "removeActiveItems": (excludedId?: number) => Promise<this>;
         "removeActiveItemsByValue": (value: string) => Promise<this>;
@@ -50,7 +50,7 @@ export namespace Components {
         "removeItemButton": boolean;
         "removeItems": boolean;
         "renderChoiceLimit": number;
-        "renderSelectedChoices": "always" | "auto";
+        "renderSelectedChoices": 'always' | 'auto';
         "resetScrollPosition": boolean;
         "searchChoices": boolean;
         "searchEnabled": boolean;
@@ -66,7 +66,7 @@ export namespace Components {
         "showDropdown": (focusInput?: boolean) => Promise<this>;
         "silent": boolean;
         "sorter": SortFn;
-        "type"?: "single" | "multiple" | "text";
+        "type"?: 'single' | 'multiple' | 'text';
         "unhighlightAll": () => Promise<this>;
         "unhighlightItem": (item: HTMLElement) => Promise<this>;
         "uniqueItemText": UniqueItemText;
@@ -263,12 +263,12 @@ declare namespace LocalJSX {
         "paste"?: boolean;
         "placeholder"?: boolean | string;
         "placeholderValue"?: string;
-        "position"?: "auto" | "top" | "bottom";
+        "position"?: 'auto' | 'top' | 'bottom';
         "prependValue"?: string;
         "removeItemButton"?: boolean;
         "removeItems"?: boolean;
         "renderChoiceLimit"?: number;
-        "renderSelectedChoices"?: "always" | "auto";
+        "renderSelectedChoices"?: 'always' | 'auto';
         "resetScrollPosition"?: boolean;
         "searchChoices"?: boolean;
         "searchEnabled"?: boolean;
@@ -280,7 +280,7 @@ declare namespace LocalJSX {
         "shouldSortItems"?: boolean;
         "silent"?: boolean;
         "sorter"?: SortFn;
-        "type"?: "single" | "multiple" | "text";
+        "type"?: 'single' | 'multiple' | 'text';
         "uniqueItemText"?: UniqueItemText;
         "value"?: string;
         "valueByDefault"?: any;

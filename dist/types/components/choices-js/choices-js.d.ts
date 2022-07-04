@@ -1,9 +1,9 @@
-import { EventEmitter } from "../../stencil-public-runtime";
-import { AjaxFn, ClassNames, FuseOptions, ItemFilterFn, NoResultsTextFn, NoChoicesTextFn, AddItemTextFn, MaxItemTextFn, SortFn, OnInit, OnCreateTemplates, UniqueItemText, ValueCompareFunction, CustomAddItemText } from "./interfaces";
+import { EventEmitter } from '../../stencil-public-runtime';
+import { AjaxFn, ClassNames, FuseOptions, ItemFilterFn, NoResultsTextFn, NoChoicesTextFn, AddItemTextFn, MaxItemTextFn, SortFn, OnInit, OnCreateTemplates, UniqueItemText, ValueCompareFunction, CustomAddItemText } from './interfaces';
 export declare class ChoicesJSStencil {
   valueByDefault: any;
   callbackChoice: EventEmitter<any>;
-  type?: "single" | "multiple" | "text";
+  type?: 'single' | 'multiple' | 'text';
   value: string;
   name: string;
   disable: boolean;
@@ -24,7 +24,7 @@ export declare class ChoicesJSStencil {
   searchFields: Array<string> | string;
   searchFloor: number;
   searchResultLimit: number;
-  position: "auto" | "top" | "bottom";
+  position: 'auto' | 'top' | 'bottom';
   resetScrollPosition: boolean;
   shouldSort: boolean;
   shouldSortItems: boolean;
@@ -34,7 +34,7 @@ export declare class ChoicesJSStencil {
   searchPlaceholderValue: string;
   prependValue: string;
   appendValue: string;
-  renderSelectedChoices: "always" | "auto";
+  renderSelectedChoices: 'always' | 'auto';
   loadingText: string;
   noResultsText: string | NoResultsTextFn;
   noChoicesText: string | NoChoicesTextFn;

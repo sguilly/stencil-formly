@@ -42,7 +42,7 @@ function getValues(value) {
     : [];
 }
 
-const choicesJsScss = "choices-js{min-width:200px !important}";
+const choicesJsCss = "choices-js{min-width:200px !important}";
 
 const ChoicesJSStencil = class {
   constructor(hostRef) {
@@ -50,15 +50,11 @@ const ChoicesJSStencil = class {
     this.callbackChoice = index.createEvent(this, "callbackChoice", 7);
   }
   async componentWillRender() {
-    if (typeof Choices == "undefined") {
+    if (typeof Choices == 'undefined') {
       let promises = [];
-      const version = "10.1.0";
-      promises.push(loadScript.loadCss("https://cdn.jsdelivr.net/npm/choices.js@" +
-        version +
-        "/public/assets/styles/choices.min.css"));
-      promises.push(loadScript.loadScript("https://cdn.jsdelivr.net/npm/choices.js@" +
-        version +
-        "/public/assets/scripts/choices.min.js"));
+      const version = '10.1.0';
+      promises.push(loadScript.loadCss('https://cdn.jsdelivr.net/npm/choices.js@' + version + '/public/assets/styles/choices.min.css'));
+      promises.push(loadScript.loadScript('https://cdn.jsdelivr.net/npm/choices.js@' + version + '/public/assets/scripts/choices.min.js'));
       await Promise.all(promises);
     }
   }
@@ -143,26 +139,26 @@ const ChoicesJSStencil = class {
     this.destroy();
   }
   handleSelect(event) {
-    console.log("choices ev", event.target.value);
+    console.log('choices ev', event.target.value);
   }
   render() {
     const attributes = {
-      "data-selector": "root",
-      name: this.name || null,
+      'data-selector': 'root',
+      'name': this.name || null,
     };
     // destroy choices element to restore previous dom structure
     // so vdom can replace the element correctly
     this.destroy();
     switch (this.type) {
-      case "single":
-        this.element = (index.h("select", Object.assign({ onInput: (event) => this.handleSelect(event) }, attributes), this.value ? this.createSelectOptions(this.value) : null));
+      case 'single':
+        this.element = (index.h("select", Object.assign({ onInput: event => this.handleSelect(event) }, attributes), this.value ? this.createSelectOptions(this.value) : null));
         break;
-      case "multiple":
-        this.element = (index.h("select", Object.assign({ onInput: (event) => this.handleSelect(event) }, attributes, { multiple: true }), this.value ? this.createSelectOptions(this.value) : null));
+      case 'multiple':
+        this.element = (index.h("select", Object.assign({ onInput: event => this.handleSelect(event) }, attributes, { multiple: true }), this.value ? this.createSelectOptions(this.value) : null));
         break;
-      case "text":
+      case 'text':
       default:
-        this.element = (index.h("input", Object.assign({ type: "text", onInput: (event) => this.handleSelect(event), value: this.value }, attributes)));
+        this.element = index.h("input", Object.assign({ type: "text", onInput: event => this.handleSelect(event), value: this.value }, attributes));
         break;
     }
     return this.element;
@@ -192,9 +188,7 @@ const ChoicesJSStencil = class {
       shouldSortItems: this.shouldSortItems,
       sorter: this.sorter,
       placeholder: true,
-      placeholderValue: this.placeholderValue ||
-        (typeof this.placeholder === "string" && this.placeholder) ||
-        " ",
+      placeholderValue: this.placeholderValue || (typeof this.placeholder === 'string' && this.placeholder) || ' ',
       searchPlaceholderValue: this.searchPlaceholderValue,
       prependValue: this.prependValue,
       appendValue: this.appendValue,
@@ -215,20 +209,20 @@ const ChoicesJSStencil = class {
       customAddItemText: this.customAddItemText,
     };
     const settings = filterObject(props, isDefined);
-    console.log("new choice", settings);
+    console.log('new choice', settings);
     this.choice = new Choices(this.root.querySelector('[data-selector="root"]'), settings);
     if (this.valueByDefault) {
-      console.log("set default value", this.valueByDefault);
+      console.log('set default value', this.valueByDefault);
       this.choice.setChoiceByValue(this.valueByDefault);
     }
     else {
-      console.log("no default value");
+      console.log('no default value');
       //this.choice.clearChoices();
     }
     if (this.disable == true) {
       this.choice.disable();
     }
-    this.choice.passedElement.element.addEventListener("choice", (event) => {
+    this.choice.passedElement.element.addEventListener('choice', event => {
       // do something creative here...
       this.callbackChoice.emit(event.detail.choice);
     }, false);
@@ -243,10 +237,10 @@ const ChoicesJSStencil = class {
     }
   }
   createSelectOptions(values) {
-    return getValues(values).map((value) => (index.h("option", { value: value }, value)));
+    return getValues(values).map(value => index.h("option", { value: value }, value));
   }
   get root() { return index.getElement(this); }
 };
-ChoicesJSStencil.style = choicesJsScss;
+ChoicesJSStencil.style = choicesJsCss;
 
 exports.choices_js = ChoicesJSStencil;
