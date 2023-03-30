@@ -1,7 +1,8 @@
-import { Component, h, Prop, Event } from '@stencil/core';
+import { h } from '@stencil/core';
 import { loadScript, loadCss } from '../../../utils/loadScript';
 export class FieldSlider {
   constructor() {
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
   }
@@ -45,75 +46,80 @@ export class FieldSlider {
     return (h("field-container", { templateOptions: this.templateOptions, displayRequired: this.displayRequired }, this.renderInput()));
   }
   static get is() { return "field-slider"; }
-  static get properties() { return {
-    "value": {
-      "type": "any",
-      "mutable": false,
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+  static get properties() {
+    return {
+      "value": {
+        "type": "any",
+        "mutable": false,
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "value",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
+      "disabled": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "disabled",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "attribute": "value",
-      "reflect": false
-    },
-    "disabled": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "attribute": "disabled",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "templateOptions": {
-      "type": "any",
-      "mutable": false,
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "attribute": "template-options",
-      "reflect": false,
-      "defaultValue": "{}"
-    }
-  }; }
-  static get events() { return [{
-      "method": "customChange",
-      "name": "customChange",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+      "templateOptions": {
+        "type": "any",
+        "mutable": false,
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "template-options",
+        "reflect": false,
+        "defaultValue": "{}"
       }
-    }]; }
+    };
+  }
+  static get events() {
+    return [{
+        "method": "customChange",
+        "name": "customChange",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
 }
+//# sourceMappingURL=field-slider.js.map

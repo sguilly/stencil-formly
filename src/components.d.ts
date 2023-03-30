@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AddItemTextFn, AjaxFn, ClassNames, CustomAddItemText, FuseOptions, ItemFilterFn, MaxItemTextFn, NoChoicesTextFn, NoResultsTextFn, OnCreateTemplates, OnInit, SortFn, UniqueItemText, ValueCompareFunction } from "./components/choices-js/interfaces";
+export { AddItemTextFn, AjaxFn, ClassNames, CustomAddItemText, FuseOptions, ItemFilterFn, MaxItemTextFn, NoChoicesTextFn, NoResultsTextFn, OnCreateTemplates, OnInit, SortFn, UniqueItemText, ValueCompareFunction } from "./components/choices-js/interfaces";
 export namespace Components {
     interface ChoicesJs {
         "addItemFilter": string | RegExp | ItemFilterFn;
@@ -133,6 +134,50 @@ export namespace Components {
         "value": any;
     }
 }
+export interface ChoicesJsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLChoicesJsElement;
+}
+export interface DynamicFormCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDynamicFormElement;
+}
+export interface FieldCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFieldCheckboxElement;
+}
+export interface FieldDatepickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFieldDatepickerElement;
+}
+export interface FieldDocsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFieldDocsElement;
+}
+export interface FieldInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFieldInputElement;
+}
+export interface FieldPhonenumberCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFieldPhonenumberElement;
+}
+export interface FieldSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFieldSelectElement;
+}
+export interface FieldSliderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFieldSliderElement;
+}
+export interface FieldTextareaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFieldTextareaElement;
+}
+export interface FieldTimepickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFieldTimepickerElement;
+}
 declare global {
     interface HTMLChoicesJsElement extends Components.ChoicesJs, HTMLStencilElement {
     }
@@ -259,7 +304,7 @@ declare namespace LocalJSX {
         "name"?: string;
         "noChoicesText"?: string | NoChoicesTextFn;
         "noResultsText"?: string | NoResultsTextFn;
-        "onCallbackChoice"?: (event: CustomEvent<any>) => void;
+        "onCallbackChoice"?: (event: ChoicesJsCustomEvent<any>) => void;
         "paste"?: boolean;
         "placeholder"?: boolean | string;
         "placeholderValue"?: string;
@@ -289,13 +334,13 @@ declare namespace LocalJSX {
     interface DynamicForm {
         "fields"?: any;
         "model"?: {};
-        "onEvent"?: (event: CustomEvent<any>) => void;
+        "onEvent"?: (event: DynamicFormCustomEvent<any>) => void;
         "options"?: any;
     }
     interface Example1 {
     }
     interface FieldCheckbox {
-        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        "onCustomChange"?: (event: FieldCheckboxCustomEvent<any>) => void;
         "templateOptions"?: any;
         "value"?: any;
     }
@@ -305,13 +350,13 @@ declare namespace LocalJSX {
     }
     interface FieldDatepicker {
         "disabled"?: boolean;
-        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        "onCustomChange"?: (event: FieldDatepickerCustomEvent<any>) => void;
         "templateOptions"?: any;
         "value"?: any;
     }
     interface FieldDocs {
         "disabled"?: boolean;
-        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        "onCustomChange"?: (event: FieldDocsCustomEvent<any>) => void;
         "templateOptions"?: any;
         "value"?: any;
     }
@@ -320,37 +365,37 @@ declare namespace LocalJSX {
     }
     interface FieldInput {
         "disabled"?: boolean;
-        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        "onCustomChange"?: (event: FieldInputCustomEvent<any>) => void;
         "templateOptions"?: any;
         "value"?: any;
     }
     interface FieldPhonenumber {
         "disabled"?: boolean;
-        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        "onCustomChange"?: (event: FieldPhonenumberCustomEvent<any>) => void;
         "templateOptions"?: any;
         "value"?: any;
     }
     interface FieldSelect {
         "disabled"?: boolean;
-        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        "onCustomChange"?: (event: FieldSelectCustomEvent<any>) => void;
         "templateOptions"?: any;
         "value"?: any;
     }
     interface FieldSlider {
         "disabled"?: boolean;
-        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        "onCustomChange"?: (event: FieldSliderCustomEvent<any>) => void;
         "templateOptions"?: any;
         "value"?: any;
     }
     interface FieldTextarea {
         "disabled"?: boolean;
-        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        "onCustomChange"?: (event: FieldTextareaCustomEvent<any>) => void;
         "templateOptions"?: any;
         "value"?: any;
     }
     interface FieldTimepicker {
         "disabled"?: boolean;
-        "onCustomChange"?: (event: CustomEvent<any>) => void;
+        "onCustomChange"?: (event: FieldTimepickerCustomEvent<any>) => void;
         "templateOptions"?: any;
         "value"?: any;
     }

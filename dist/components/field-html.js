@@ -30,3 +30,5 @@ const FieldHtml = FieldHtml$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { FieldHtml, defineCustomElement };
+
+//# sourceMappingURL=field-html.js.map

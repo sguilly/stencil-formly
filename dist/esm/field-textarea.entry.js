@@ -1,11 +1,12 @@
-import { r as registerInstance, c as createEvent, h } from './index-d71065ba.js';
-import { g as getClassNames } from './style-7341b0da.js';
-import './styleStore-bad52635.js';
+import { r as registerInstance, c as createEvent, h } from './index-4410364a.js';
+import { g as getClassNames } from './style-599af9cc.js';
+import './styleStore-14fbb8d0.js';
 
 const FieldInput = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
   }
@@ -27,3 +28,5 @@ const FieldInput = class {
 };
 
 export { FieldInput as field_textarea };
+
+//# sourceMappingURL=field-textarea.entry.js.map

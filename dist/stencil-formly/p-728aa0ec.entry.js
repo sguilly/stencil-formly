@@ -1,0 +1,2 @@
+import{r,h as s}from"./p-e187c62c.js";const t=class{constructor(s){r(this,s);this.templateOptions={}}render(){return s("div",{innerHTML:this.templateOptions.html})}};export{t as field_html};
+//# sourceMappingURL=p-728aa0ec.entry.js.map

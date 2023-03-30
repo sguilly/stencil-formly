@@ -7,6 +7,7 @@ const FieldSelect$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement
     super();
     this.__registerHost();
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
   }
@@ -57,3 +58,5 @@ const FieldSelect = FieldSelect$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { FieldSelect, defineCustomElement };
+
+//# sourceMappingURL=field-select.js.map

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-d1b80a98.js');
+const index = require('./index-e4330bec.js');
 
 const FieldHtml = class {
   constructor(hostRef) {
@@ -15,3 +15,5 @@ const FieldHtml = class {
 };
 
 exports.field_html = FieldHtml;
+
+//# sourceMappingURL=field-html.cjs.entry.js.map

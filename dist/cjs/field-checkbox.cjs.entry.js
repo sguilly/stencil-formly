@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-d1b80a98.js');
+const index = require('./index-e4330bec.js');
 
 const fieldCheckboxCss = ".df-checkboxes-container{display:flex;flex-wrap:wrap;flex-direction:row}.df-checkbox-container{display:flex;flex-wrap:wrap;flex-direction:row;align-items:center}.df-checkbox-input{margin-left:10px;margin-right:10px}";
 
@@ -10,6 +10,7 @@ const FieldCheckbox = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.customChange = index.createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.templateOptions = {};
   }
   renderInput() {
@@ -58,3 +59,5 @@ const FieldCheckbox = class {
 FieldCheckbox.style = fieldCheckboxCss;
 
 exports.field_checkbox = FieldCheckbox;
+
+//# sourceMappingURL=field-checkbox.cjs.entry.js.map

@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, a as getElement } from './index-d71065ba.js';
+import { r as registerInstance, c as createEvent, h, a as getElement } from './index-4410364a.js';
 import { l as loadCss, a as loadModule } from './loadScript-649d145b.js';
 
 const fieldTimepickerCss = "custom-timepicker input{width:100px !important}";
@@ -7,8 +7,10 @@ const FieldTimepickerComponent = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
+    this.dateStr = undefined;
   }
   calendarHandler(newValue, _oldValue) {
     console.log('New value for value: ', newValue);
@@ -60,3 +62,5 @@ const FieldTimepickerComponent = class {
 FieldTimepickerComponent.style = fieldTimepickerCss;
 
 export { FieldTimepickerComponent as field_timepicker };
+
+//# sourceMappingURL=field-timepicker.entry.js.map

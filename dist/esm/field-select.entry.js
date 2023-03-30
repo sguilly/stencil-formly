@@ -1,9 +1,10 @@
-import { r as registerInstance, c as createEvent, h } from './index-d71065ba.js';
+import { r as registerInstance, c as createEvent, h } from './index-4410364a.js';
 
 const FieldSelect = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
   }
@@ -24,3 +25,5 @@ const FieldSelect = class {
 };
 
 export { FieldSelect as field_select };
+
+//# sourceMappingURL=field-select.entry.js.map

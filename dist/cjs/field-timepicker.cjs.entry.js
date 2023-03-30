@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-d1b80a98.js');
+const index = require('./index-e4330bec.js');
 const loadScript = require('./loadScript-e4923893.js');
 
 const fieldTimepickerCss = "custom-timepicker input{width:100px !important}";
@@ -11,8 +11,10 @@ const FieldTimepickerComponent = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.customChange = index.createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
+    this.dateStr = undefined;
   }
   calendarHandler(newValue, _oldValue) {
     console.log('New value for value: ', newValue);
@@ -64,3 +66,5 @@ const FieldTimepickerComponent = class {
 FieldTimepickerComponent.style = fieldTimepickerCss;
 
 exports.field_timepicker = FieldTimepickerComponent;
+
+//# sourceMappingURL=field-timepicker.cjs.entry.js.map

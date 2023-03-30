@@ -14,3 +14,4 @@ export function getBulmaClass() {
     }
   };
 }
+//# sourceMappingURL=bulma.js.map

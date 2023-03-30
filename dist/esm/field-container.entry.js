@@ -1,10 +1,11 @@
-import { r as registerInstance, h } from './index-d71065ba.js';
-import { g as getClassNames } from './style-7341b0da.js';
-import './styleStore-bad52635.js';
+import { r as registerInstance, h } from './index-4410364a.js';
+import { g as getClassNames } from './style-599af9cc.js';
+import './styleStore-14fbb8d0.js';
 
 const FieldContainer = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
+    this.templateOptions = undefined;
     this.displayRequired = false;
   }
   componentWillRender() {
@@ -18,3 +19,5 @@ const FieldContainer = class {
 };
 
 export { FieldContainer as field_container };
+
+//# sourceMappingURL=field-container.entry.js.map

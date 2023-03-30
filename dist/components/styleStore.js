@@ -66,8 +66,10 @@ const stencilSubscription = () => {
     };
 };
 
+const unwrap = (val) => (typeof val === 'function' ? val() : val);
 const createObservableMap = (defaultState, shouldUpdate = (a, b) => a !== b) => {
-    let states = new Map(Object.entries(defaultState !== null && defaultState !== void 0 ? defaultState : {}));
+    const unwrappedState = unwrap(defaultState);
+    let states = new Map(Object.entries(unwrappedState !== null && unwrappedState !== void 0 ? unwrappedState : {}));
     const handlers = {
         dispose: [],
         get: [],
@@ -75,7 +77,10 @@ const createObservableMap = (defaultState, shouldUpdate = (a, b) => a !== b) => 
         reset: [],
     };
     const reset = () => {
-        states = new Map(Object.entries(defaultState !== null && defaultState !== void 0 ? defaultState : {}));
+        var _a;
+        // When resetting the state, the default state may be a function - unwrap it to invoke it.
+        // otherwise, the state won't be properly reset
+        states = new Map(Object.entries((_a = unwrap(defaultState)) !== null && _a !== void 0 ? _a : {}));
         handlers.reset.forEach((cb) => cb());
     };
     const dispose = () => {
@@ -97,7 +102,7 @@ const createObservableMap = (defaultState, shouldUpdate = (a, b) => a !== b) => 
     };
     const state = (typeof Proxy === 'undefined'
         ? {}
-        : new Proxy(defaultState, {
+        : new Proxy(unwrappedState, {
             get(_, propName) {
                 return get(propName);
             },
@@ -130,7 +135,9 @@ const createObservableMap = (defaultState, shouldUpdate = (a, b) => a !== b) => 
                 cb(newValue);
             }
         });
-        const unReset = on('reset', () => cb(defaultState[propName]));
+        // We need to unwrap the defaultState because it might be a function.
+        // Otherwise we might not be sending the right reset value.
+        const unReset = on('reset', () => cb(unwrap(defaultState)[propName]));
         return () => {
             unSet();
             unReset();
@@ -192,3 +199,5 @@ onChange('style', value => {
 });
 
 export { state as s };
+
+//# sourceMappingURL=styleStore.js.map

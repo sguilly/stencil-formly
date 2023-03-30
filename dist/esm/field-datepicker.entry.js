@@ -1,7 +1,7 @@
-import { r as registerInstance, c as createEvent, h, a as getElement } from './index-d71065ba.js';
-import { g as getClassNames } from './style-7341b0da.js';
+import { r as registerInstance, c as createEvent, h, a as getElement } from './index-4410364a.js';
+import { g as getClassNames } from './style-599af9cc.js';
 import { l as loadCss, a as loadModule } from './loadScript-649d145b.js';
-import './styleStore-bad52635.js';
+import './styleStore-14fbb8d0.js';
 
 const fieldDatepickerCss = "input[type=\"checkbox\"]{transform:scale(1)}custom-datepicker input{width:100px !important}";
 
@@ -9,8 +9,10 @@ const FieldDatepickerComponent = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
+    this.dateStr = undefined;
   }
   calendarHandler(newValue, _oldValue) {
     console.log('New value for value: ', newValue);
@@ -60,3 +62,5 @@ const FieldDatepickerComponent = class {
 FieldDatepickerComponent.style = fieldDatepickerCss;
 
 export { FieldDatepickerComponent as field_datepicker };
+
+//# sourceMappingURL=field-datepicker.entry.js.map

@@ -6,3 +6,4 @@ onChange('style', value => {
   state.style = value;
 });
 export { state, onChange };
+//# sourceMappingURL=styleStore.js.map

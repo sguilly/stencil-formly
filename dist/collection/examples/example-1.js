@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { h } from '@stencil/core';
 export class Example1 {
   constructor() {
     this.model = {
@@ -196,13 +196,12 @@ export class Example1 {
   }
   save() { }
   render() {
-    return (h("div", { class: "m-4" },
-      h("dynamic-form", { model: this.model, fields: this.form, options: {
-          fieldClass: 'ml-4 mr-4',
-          requiredText: 'This field is required !',
-          style: 'bulma',
-        } }),
-      ";"));
+    return (h("div", { class: "m-4" }, h("dynamic-form", { model: this.model, fields: this.form, options: {
+        fieldClass: 'ml-4 mr-4',
+        requiredText: 'This field is required !',
+        style: 'bulma',
+      } }), ";"));
   }
   static get is() { return "example-1"; }
 }
+//# sourceMappingURL=example-1.js.map

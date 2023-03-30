@@ -230,3 +230,5 @@ const Example1 = Example1$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { Example1, defineCustomElement };
+
+//# sourceMappingURL=example-1.js.map

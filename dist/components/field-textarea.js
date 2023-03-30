@@ -6,6 +6,7 @@ const FieldInput = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     super();
     this.__registerHost();
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
   }
@@ -52,3 +53,5 @@ const FieldTextarea = FieldInput;
 const defineCustomElement = defineCustomElement$1;
 
 export { FieldTextarea, defineCustomElement };
+
+//# sourceMappingURL=field-textarea.js.map

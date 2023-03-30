@@ -1,0 +1,1 @@
+{"version":3,"file":"saveModel.js","sourceRoot":"","sources":["../../src/services/saveModel.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,KAAK,UAAU,SAAS,CAAC,KAAU;EACxC,YAAY,CAAC,OAAO,CAAC,OAAO,EAAE,IAAI,CAAC,SAAS,CAAC,KAAK,CAAC,CAAC,CAAC;AACvD,CAAC","sourcesContent":["export async function saveModel(model: any) {\n  localStorage.setItem(\"model\", JSON.stringify(model));\n}\n"]}

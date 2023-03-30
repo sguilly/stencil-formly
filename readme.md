@@ -13,6 +13,15 @@ npm install
 npm run start
 ```
 
+## Storybook
+
+```bash
+npm run build
+npm run storybook
+```
+
+![](https://github.com/sguilly/stencil-formly/raw/main/docs/assets/storybook.png)
+
 # USE AS WEB COMPONENT
 
 ```html

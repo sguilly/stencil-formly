@@ -7,6 +7,7 @@ const FieldInput = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     super();
     this.__registerHost();
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
   }
@@ -79,3 +80,5 @@ const FieldPhonenumber = FieldInput;
 const defineCustomElement = defineCustomElement$1;
 
 export { FieldPhonenumber, defineCustomElement };
+
+//# sourceMappingURL=field-phonenumber.js.map

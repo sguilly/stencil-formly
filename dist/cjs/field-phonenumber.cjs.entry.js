@@ -2,13 +2,14 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-d1b80a98.js');
+const index = require('./index-e4330bec.js');
 const loadScript = require('./loadScript-e4923893.js');
 
 const FieldInput = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.customChange = index.createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
   }
@@ -56,3 +57,5 @@ const FieldInput = class {
 };
 
 exports.field_phonenumber = FieldInput;
+
+//# sourceMappingURL=field-phonenumber.cjs.entry.js.map

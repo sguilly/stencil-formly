@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h } from './index-d71065ba.js';
+import { r as registerInstance, c as createEvent, h } from './index-4410364a.js';
 
 const fieldCheckboxCss = ".df-checkboxes-container{display:flex;flex-wrap:wrap;flex-direction:row}.df-checkbox-container{display:flex;flex-wrap:wrap;flex-direction:row;align-items:center}.df-checkbox-input{margin-left:10px;margin-right:10px}";
 
@@ -6,6 +6,7 @@ const FieldCheckbox = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.templateOptions = {};
   }
   renderInput() {
@@ -54,3 +55,5 @@ const FieldCheckbox = class {
 FieldCheckbox.style = fieldCheckboxCss;
 
 export { FieldCheckbox as field_checkbox };
+
+//# sourceMappingURL=field-checkbox.entry.js.map

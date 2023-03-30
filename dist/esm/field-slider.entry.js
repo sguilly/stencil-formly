@@ -1,10 +1,11 @@
-import { r as registerInstance, c as createEvent, h } from './index-d71065ba.js';
+import { r as registerInstance, c as createEvent, h } from './index-4410364a.js';
 import { l as loadCss, b as loadScript } from './loadScript-649d145b.js';
 
 const FieldSlider = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
   }
@@ -50,3 +51,5 @@ const FieldSlider = class {
 };
 
 export { FieldSlider as field_slider };
+
+//# sourceMappingURL=field-slider.entry.js.map

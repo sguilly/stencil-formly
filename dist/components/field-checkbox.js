@@ -8,6 +8,7 @@ const FieldCheckbox$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLEleme
     super();
     this.__registerHost();
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.templateOptions = {};
   }
   renderInput() {
@@ -80,3 +81,5 @@ const FieldCheckbox = FieldCheckbox$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { FieldCheckbox, defineCustomElement };
+
+//# sourceMappingURL=field-checkbox.js.map

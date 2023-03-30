@@ -48,6 +48,7 @@ const FieldContainer = /*@__PURE__*/ proxyCustomElement(class extends HTMLElemen
   constructor() {
     super();
     this.__registerHost();
+    this.templateOptions = undefined;
     this.displayRequired = false;
   }
   componentWillRender() {
@@ -77,3 +78,5 @@ function defineCustomElement() {
 }
 
 export { FieldContainer as F, defineCustomElement as d, getClassNames as g };
+
+//# sourceMappingURL=field-container2.js.map

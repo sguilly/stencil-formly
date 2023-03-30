@@ -82,3 +82,5 @@ function loadCss(url, element) {
 }
 
 export { loadScript as a, loadModule as b, loadCss as l };
+
+//# sourceMappingURL=loadScript.js.map

@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-d71065ba.js';
+import { r as registerInstance, h } from './index-4410364a.js';
 
 const FieldHtml = class {
   constructor(hostRef) {
@@ -11,3 +11,5 @@ const FieldHtml = class {
 };
 
 export { FieldHtml as field_html };
+
+//# sourceMappingURL=field-html.entry.js.map

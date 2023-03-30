@@ -92,7 +92,7 @@ export class ChoicesJSStencil {
   async componentWillRender() {
     if (typeof Choices == 'undefined') {
       let promises = [];
-      const version = '10.1.0';
+      const version = '10.2.0';
 
       promises.push(loadCss('https://cdn.jsdelivr.net/npm/choices.js@' + version + '/public/assets/styles/choices.min.css'));
       promises.push(loadScript('https://cdn.jsdelivr.net/npm/choices.js@' + version + '/public/assets/scripts/choices.min.js'));

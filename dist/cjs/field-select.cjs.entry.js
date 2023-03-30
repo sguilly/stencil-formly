@@ -2,12 +2,13 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-d1b80a98.js');
+const index = require('./index-e4330bec.js');
 
 const FieldSelect = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.customChange = index.createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
   }
@@ -28,3 +29,5 @@ const FieldSelect = class {
 };
 
 exports.field_select = FieldSelect;
+
+//# sourceMappingURL=field-select.cjs.entry.js.map

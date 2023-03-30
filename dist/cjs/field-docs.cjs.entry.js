@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-d1b80a98.js');
+const index = require('./index-e4330bec.js');
 const loadScript = require('./loadScript-e4923893.js');
 
 const fieldDocsCss = ".filepond--item{width:calc(25% - 0.5em)}.df-docs-container{display:flex;flex-wrap:wrap;flex-direction:row;align-items:center}";
@@ -11,6 +11,7 @@ const FieldDocs = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.customChange = index.createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
     this.docs = [];
@@ -98,3 +99,5 @@ const FieldDocs = class {
 FieldDocs.style = fieldDocsCss;
 
 exports.field_docs = FieldDocs;
+
+//# sourceMappingURL=field-docs.cjs.entry.js.map

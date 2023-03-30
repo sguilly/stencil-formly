@@ -10,6 +10,8 @@ const DynamicForm = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
     this.__registerHost();
     this.event = createEvent(this, "event", 7);
     this.model = {};
+    this.fields = undefined;
+    this.options = undefined;
   }
   async componentWillLoad() {
     let promises = [];
@@ -17,7 +19,7 @@ const DynamicForm = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement {
       state.style = this.options.style;
     }
     if (state.style == 'bulma') {
-      promises.push(loadCss('https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'));
+      promises.push(loadCss('https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'));
     }
     else if (state.style == 'bootstrap') {
       promises.push(loadCss('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'));
@@ -97,3 +99,5 @@ function defineCustomElement() {
 }
 
 export { DynamicForm as D, defineCustomElement as d };
+
+//# sourceMappingURL=dynamic-form2.js.map

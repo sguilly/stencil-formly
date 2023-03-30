@@ -2,9 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-d1b80a98.js');
+const index = require('./index-e4330bec.js');
 const loadScript = require('./loadScript-e4923893.js');
-const styleStore = require('./styleStore-17ec64a1.js');
+const styleStore = require('./styleStore-9a6e9e83.js');
 
 const dynamicFormCss = ".df-fields-container{display:flex !important;flex-direction:row !important;flex-wrap:wrap !important;align-content:stretch !important}.df-is-required{border-color:#f14668 !important;color:#f14668 !important}.is-flex-grow-0{flex-grow:0 !important}.is-flex-grow-1{flex-grow:1 !important}.is-flex-grow-2{flex-grow:2 !important}.is-flex-grow-3{flex-grow:3 !important}.is-flex-grow-4{flex-grow:4 !important}.is-flex-grow-5{flex-grow:5 !important}";
 
@@ -13,6 +13,8 @@ const DynamicForm = class {
     index.registerInstance(this, hostRef);
     this.event = index.createEvent(this, "event", 7);
     this.model = {};
+    this.fields = undefined;
+    this.options = undefined;
   }
   async componentWillLoad() {
     let promises = [];
@@ -20,7 +22,7 @@ const DynamicForm = class {
       styleStore.state.style = this.options.style;
     }
     if (styleStore.state.style == 'bulma') {
-      promises.push(loadScript.loadCss('https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'));
+      promises.push(loadScript.loadCss('https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'));
     }
     else if (styleStore.state.style == 'bootstrap') {
       promises.push(loadScript.loadCss('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'));
@@ -290,3 +292,5 @@ const Example1 = class {
 
 exports.dynamic_form = DynamicForm;
 exports.example_1 = Example1;
+
+//# sourceMappingURL=dynamic-form_2.cjs.entry.js.map

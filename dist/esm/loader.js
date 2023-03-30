@@ -1,7 +1,8 @@
-import { p as promiseResolve, b as bootstrapLazy } from './index-d71065ba.js';
+import { p as promiseResolve, b as bootstrapLazy } from './index-4410364a.js';
+export { s as setNonce } from './index-4410364a.js';
 
 /*
- Stencil Client Patch Esm v2.15.1 | MIT Licensed | https://stenciljs.com
+ Stencil Client Patch Esm v3.2.0 | MIT Licensed | https://stenciljs.com
  */
 const patchEsm = () => {
     return promiseResolve();
@@ -15,3 +16,5 @@ const defineCustomElements = (win, options) => {
 };
 
 export { defineCustomElements };
+
+//# sourceMappingURL=loader.js.map

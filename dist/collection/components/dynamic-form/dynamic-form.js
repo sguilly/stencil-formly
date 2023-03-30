@@ -1,9 +1,11 @@
-import { Component, h, Prop, Event } from '@stencil/core';
+import { h } from '@stencil/core';
 import { loadCss } from '../../utils/loadScript';
 import { state } from '../../stores/styleStore';
 export class DynamicForm {
   constructor() {
     this.model = {};
+    this.fields = undefined;
+    this.options = undefined;
   }
   async componentWillLoad() {
     let promises = [];
@@ -11,7 +13,7 @@ export class DynamicForm {
       state.style = this.options.style;
     }
     if (state.style == 'bulma') {
-      promises.push(loadCss('https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'));
+      promises.push(loadCss('https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'));
     }
     else if (state.style == 'bootstrap') {
       promises.push(loadCss('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'));
@@ -72,78 +74,87 @@ export class DynamicForm {
     return h("div", null, ((_a = this.fields) === null || _a === void 0 ? void 0 : _a.length) ? this.renderFields(this.fields) : null);
   }
   static get is() { return "dynamic-form"; }
-  static get originalStyleUrls() { return {
-    "$": ["dynamic-form.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["dynamic-form.css"]
-  }; }
-  static get properties() { return {
-    "model": {
-      "type": "unknown",
-      "mutable": false,
-      "complexType": {
-        "original": "{}",
-        "resolved": "{}",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["dynamic-form.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["dynamic-form.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "model": {
+        "type": "unknown",
+        "mutable": false,
+        "complexType": {
+          "original": "{}",
+          "resolved": "{}",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "defaultValue": "{}"
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
+      "fields": {
+        "type": "any",
+        "mutable": false,
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "fields",
+        "reflect": false
       },
-      "defaultValue": "{}"
-    },
-    "fields": {
-      "type": "any",
-      "mutable": false,
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "attribute": "fields",
-      "reflect": false
-    },
-    "options": {
-      "type": "any",
-      "mutable": false,
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "attribute": "options",
-      "reflect": false
-    }
-  }; }
-  static get events() { return [{
-      "method": "event",
-      "name": "event",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+      "options": {
+        "type": "any",
+        "mutable": false,
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "options",
+        "reflect": false
       }
-    }]; }
+    };
+  }
+  static get events() {
+    return [{
+        "method": "event",
+        "name": "event",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
 }
+//# sourceMappingURL=dynamic-form.js.map

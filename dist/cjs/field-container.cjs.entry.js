@@ -2,13 +2,14 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-d1b80a98.js');
-const style = require('./style-b4a630bb.js');
-require('./styleStore-17ec64a1.js');
+const index = require('./index-e4330bec.js');
+const style = require('./style-2fe7c5dd.js');
+require('./styleStore-9a6e9e83.js');
 
 const FieldContainer = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
+    this.templateOptions = undefined;
     this.displayRequired = false;
   }
   componentWillRender() {
@@ -22,3 +23,5 @@ const FieldContainer = class {
 };
 
 exports.field_container = FieldContainer;
+
+//# sourceMappingURL=field-container.cjs.entry.js.map

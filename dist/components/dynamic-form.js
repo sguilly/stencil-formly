@@ -4,3 +4,5 @@ const DynamicForm = DynamicForm$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { DynamicForm, defineCustomElement };
+
+//# sourceMappingURL=dynamic-form.js.map

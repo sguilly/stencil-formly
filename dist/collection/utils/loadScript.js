@@ -104,3 +104,4 @@ export function loadCss(url, element) {
     }
   });
 }
+//# sourceMappingURL=loadScript.js.map

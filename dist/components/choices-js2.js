@@ -45,11 +45,58 @@ const ChoicesJSStencil = /*@__PURE__*/ proxyCustomElement(class extends HTMLElem
     super();
     this.__registerHost();
     this.callbackChoice = createEvent(this, "callbackChoice", 7);
+    this.valueByDefault = undefined;
+    this.type = undefined;
+    this.value = undefined;
+    this.name = undefined;
+    this.disable = undefined;
+    this.silent = undefined;
+    this.items = undefined;
+    this.choices = undefined;
+    this.renderChoiceLimit = undefined;
+    this.maxItemCount = undefined;
+    this.addItems = undefined;
+    this.removeItems = undefined;
+    this.removeItemButton = undefined;
+    this.editItems = undefined;
+    this.duplicateItemsAllowed = undefined;
+    this.delimiter = undefined;
+    this.paste = undefined;
+    this.searchEnabled = undefined;
+    this.searchChoices = undefined;
+    this.searchFields = undefined;
+    this.searchFloor = undefined;
+    this.searchResultLimit = undefined;
+    this.position = undefined;
+    this.resetScrollPosition = undefined;
+    this.shouldSort = undefined;
+    this.shouldSortItems = undefined;
+    this.sorter = undefined;
+    this.placeholder = undefined;
+    this.placeholderValue = undefined;
+    this.searchPlaceholderValue = undefined;
+    this.prependValue = undefined;
+    this.appendValue = undefined;
+    this.renderSelectedChoices = undefined;
+    this.loadingText = undefined;
+    this.noResultsText = undefined;
+    this.noChoicesText = undefined;
+    this.itemSelectText = undefined;
+    this.addItemText = undefined;
+    this.maxItemText = undefined;
+    this.uniqueItemText = undefined;
+    this.classNames = undefined;
+    this.fuseOptions = undefined;
+    this.addItemFilter = undefined;
+    this.customAddItemText = undefined;
+    this.callbackOnInit = undefined;
+    this.callbackOnCreateTemplates = undefined;
+    this.valueComparer = undefined;
   }
   async componentWillRender() {
     if (typeof Choices == 'undefined') {
       let promises = [];
-      const version = '10.1.0';
+      const version = '10.2.0';
       promises.push(loadCss('https://cdn.jsdelivr.net/npm/choices.js@' + version + '/public/assets/styles/choices.min.css'));
       promises.push(loadScript('https://cdn.jsdelivr.net/npm/choices.js@' + version + '/public/assets/scripts/choices.min.js'));
       await Promise.all(promises);
@@ -320,3 +367,5 @@ function defineCustomElement() {
 }
 
 export { ChoicesJSStencil as C, defineCustomElement as d };
+
+//# sourceMappingURL=choices-js2.js.map

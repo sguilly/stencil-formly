@@ -2,10 +2,10 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-d1b80a98.js');
-const style = require('./style-b4a630bb.js');
+const index = require('./index-e4330bec.js');
+const style = require('./style-2fe7c5dd.js');
 const loadScript = require('./loadScript-e4923893.js');
-require('./styleStore-17ec64a1.js');
+require('./styleStore-9a6e9e83.js');
 
 const fieldDatepickerCss = "input[type=\"checkbox\"]{transform:scale(1)}custom-datepicker input{width:100px !important}";
 
@@ -13,8 +13,10 @@ const FieldDatepickerComponent = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.customChange = index.createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
+    this.dateStr = undefined;
   }
   calendarHandler(newValue, _oldValue) {
     console.log('New value for value: ', newValue);
@@ -64,3 +66,5 @@ const FieldDatepickerComponent = class {
 FieldDatepickerComponent.style = fieldDatepickerCss;
 
 exports.field_datepicker = FieldDatepickerComponent;
+
+//# sourceMappingURL=field-datepicker.cjs.entry.js.map

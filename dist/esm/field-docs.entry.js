@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h } from './index-d71065ba.js';
+import { r as registerInstance, c as createEvent, h } from './index-4410364a.js';
 import { b as loadScript, l as loadCss } from './loadScript-649d145b.js';
 
 const fieldDocsCss = ".filepond--item{width:calc(25% - 0.5em)}.df-docs-container{display:flex;flex-wrap:wrap;flex-direction:row;align-items:center}";
@@ -7,6 +7,7 @@ const FieldDocs = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
     this.docs = [];
@@ -94,3 +95,5 @@ const FieldDocs = class {
 FieldDocs.style = fieldDocsCss;
 
 export { FieldDocs as field_docs };
+
+//# sourceMappingURL=field-docs.entry.js.map

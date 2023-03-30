@@ -9,8 +9,10 @@ const FieldTimepickerComponent = /*@__PURE__*/ proxyCustomElement(class extends 
     super();
     this.__registerHost();
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
+    this.dateStr = undefined;
   }
   calendarHandler(newValue, _oldValue) {
     console.log('New value for value: ', newValue);
@@ -88,3 +90,5 @@ const FieldTimepicker = FieldTimepickerComponent;
 const defineCustomElement = defineCustomElement$1;
 
 export { FieldTimepicker, defineCustomElement };
+
+//# sourceMappingURL=field-timepicker.js.map

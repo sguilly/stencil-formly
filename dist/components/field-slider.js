@@ -7,6 +7,7 @@ const FieldSlider$1 = /*@__PURE__*/ proxyCustomElement(class extends HTMLElement
     super();
     this.__registerHost();
     this.customChange = createEvent(this, "customChange", 7);
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
   }
@@ -77,3 +78,5 @@ const FieldSlider = FieldSlider$1;
 const defineCustomElement = defineCustomElement$1;
 
 export { FieldSlider, defineCustomElement };
+
+//# sourceMappingURL=field-slider.js.map

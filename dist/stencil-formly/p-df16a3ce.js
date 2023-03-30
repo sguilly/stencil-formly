@@ -1,0 +1,2 @@
+import{s as e}from"./p-7f579604.js";function a(){return{group:{className:"field p-4",label:{className:"label"},control:{className:"input"},helper:{className:"help is-danger"}}}}function l(){return{group:{className:"form-group m-2",label:{className:"label"},control:{className:"form-control"},helper:{className:"form-text text-danger"}}}}function r(){if(e.style=="bulma"){return a()}else if(e.style=="bootstrap"){return l()}}export{r as g};
+//# sourceMappingURL=p-df16a3ce.js.map

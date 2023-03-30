@@ -1,7 +1,7 @@
 /**
  * @link https://github.com/jshjohnson/Choices#classnames
  */
-export declare type ClassNames = {
+export type ClassNames = {
   containerOuter?: string;
   containerInner?: string;
   input?: string;
@@ -32,7 +32,7 @@ export declare type ClassNames = {
 /**
  * @link https://github.com/krisk/Fuse/blob/v3.6.1/src/typings.d.ts#L51
  */
-export declare type WeightedField = {
+export type WeightedField = {
   [key: string]: any;
   weight: number;
 };
@@ -40,7 +40,7 @@ export declare type WeightedField = {
  * @version 3.6.1
  * @link https://github.com/krisk/Fuse/blob/v3.6.1/src/typings.d.ts#L43
  */
-export declare type FuseOptions = {
+export type FuseOptions = {
   id?: string;
   caseSensitive?: boolean;
   includeMatches?: boolean;
@@ -67,41 +67,41 @@ export declare type FuseOptions = {
 /**
  * @link https://github.com/jshjohnson/Choices#addItemFilter
  */
-export declare type ItemFilterFn = (value: string) => boolean;
+export type ItemFilterFn = (value: string) => boolean;
 /**
  * @link https://github.com/jshjohnson/Choices#noresultstext
  */
-export declare type NoResultsTextFn = () => string;
+export type NoResultsTextFn = () => string;
 /**
  * @link https://github.com/jshjohnson/Choices#nochoicestext
  */
-export declare type NoChoicesTextFn = () => string;
+export type NoChoicesTextFn = () => string;
 /**
  * @link https://github.com/jshjohnson/Choices#additemtext
  */
-export declare type AddItemTextFn = ((value: string) => string) | string;
+export type AddItemTextFn = ((value: string) => string) | string;
 /**
  * @link https://github.com/jshjohnson/Choices#maxitemtext
  */
-export declare type MaxItemTextFn = (maxItemCount: number) => string;
+export type MaxItemTextFn = (maxItemCount: number) => string;
 /**
  * @link https://github.com/jshjohnson/Choices#sortfilter
  */
-export declare type SortFn = (el1: any, el2: any) => number;
-export declare type UniqueItemText = ((value: string) => string) | string;
-export declare type CustomAddItemText = ((value: string) => string) | string;
+export type SortFn = (el1: any, el2: any) => number;
+export type UniqueItemText = ((value: string) => string) | string;
+export type CustomAddItemText = ((value: string) => string) | string;
 /**
  * @link https://github.com/jshjohnson/Choices#callbackoninit
  */
-export declare type OnInit = () => void;
+export type OnInit = () => void;
 /**
  * @link https://github.com/jshjohnson/Choices#callbackoncreatetemplates
  */
-export declare type OnCreateTemplates = (template: any) => any;
+export type OnCreateTemplates = (template: any) => any;
 /**
  * @link https://github.com/jshjohnson/Choices#valuecomparer
  */
-export declare type ValueCompareFunction = (value1: string, value2: string) => boolean;
+export type ValueCompareFunction = (value1: string, value2: string) => boolean;
 /**
  * @link https://github.com/jshjohnson/Choices#configuration-options
  */
@@ -152,7 +152,7 @@ export interface IChoicesProps {
 /**
  * @link https://github.com/jshjohnson/Choices#ajaxfn
  */
-export declare type AjaxFn = (callback: any) => void;
+export type AjaxFn = (callback: any) => void;
 /**
  * @link https://github.com/jshjohnson/Choices#methods
  */

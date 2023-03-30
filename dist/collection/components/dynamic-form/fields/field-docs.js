@@ -1,7 +1,8 @@
-import { Component, h, State, Prop, Event, Watch } from '@stencil/core';
+import { h } from '@stencil/core';
 import { loadScript, loadCss } from '../../../utils/loadScript';
 export class FieldDocs {
   constructor() {
+    this.value = undefined;
     this.disabled = false;
     this.templateOptions = {};
     this.docs = [];
@@ -68,12 +69,10 @@ export class FieldDocs {
     if (this.docs.length > 0) {
       console.log('render docs', JSON.stringify(this.docs));
       return (h("div", { class: "df-docs-container" }, this.docs.map((element, index) => {
-        return (h("div", null,
-          h("img", { src: element.thumb, style: { 'margin-left': '10px' } }),
-          h("button", { class: "delete is-small df-is-required", onClick: () => {
-              console.log('this.docs', this.docs);
-              this.removeDoc(index);
-            } })));
+        return (h("div", null, h("img", { src: element.thumb, style: { 'margin-left': '10px' } }), h("button", { class: "delete is-small df-is-required", onClick: () => {
+            console.log('this.docs', this.docs);
+            this.removeDoc(index);
+          } })));
       })));
     }
   }
@@ -85,88 +84,101 @@ export class FieldDocs {
     return (h("field-container", { templateOptions: this.templateOptions, displayRequired: this.displayRequired }, this.renderInput()));
   }
   static get is() { return "field-docs"; }
-  static get originalStyleUrls() { return {
-    "$": ["field-docs.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["field-docs.css"]
-  }; }
-  static get properties() { return {
-    "value": {
-      "type": "any",
-      "mutable": false,
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["field-docs.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["field-docs.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "value": {
+        "type": "any",
+        "mutable": false,
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "value",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
+      "disabled": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "disabled",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "attribute": "value",
-      "reflect": false
-    },
-    "disabled": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "attribute": "disabled",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "templateOptions": {
-      "type": "any",
-      "mutable": false,
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "attribute": "template-options",
-      "reflect": false,
-      "defaultValue": "{}"
-    }
-  }; }
-  static get states() { return {
-    "docs": {}
-  }; }
-  static get events() { return [{
-      "method": "customChange",
-      "name": "customChange",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+      "templateOptions": {
+        "type": "any",
+        "mutable": false,
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "template-options",
+        "reflect": false,
+        "defaultValue": "{}"
       }
-    }]; }
-  static get watchers() { return [{
-      "propName": "value",
-      "methodName": "calendarHandler"
-    }]; }
+    };
+  }
+  static get states() {
+    return {
+      "docs": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "customChange",
+        "name": "customChange",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
+  static get watchers() {
+    return [{
+        "propName": "value",
+        "methodName": "calendarHandler"
+      }];
+  }
 }
+//# sourceMappingURL=field-docs.js.map

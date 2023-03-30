@@ -24,12 +24,25 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "examples": "stencil build && http-server -o /examples"
+    "examples": "stencil build && http-server -o /examples",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@stencil/core": "^2.13.0",
-    "@stencil/store": "^1.5.0"
+    "@stencil/core": "3.2.0",
+    "@stencil/store": "2.0.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@storybook/addon-essentials": "7.0.0-rc.10",
+    "@storybook/addon-links": "7.0.0-rc.10",
+    "@storybook/blocks": "7.0.0-rc.10",
+    "@storybook/testing-library": "0.0.13",
+    "@storybook/web-components": "7.0.0-rc.10",
+    "@storybook/web-components-webpack5": "7.0.0-rc.10",
+    "lit": "2.7.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "storybook": "7.0.0-rc.10"
+  },
   "license": "MIT"
 }

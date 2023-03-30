@@ -1,4 +1,4 @@
-export declare type FilterObjectFn = (value: any, key: string | number, obj: object) => boolean;
+export type FilterObjectFn = (value: any, key: string | number, obj: object) => boolean;
 /**
  * Filter out entries from an object.
  *

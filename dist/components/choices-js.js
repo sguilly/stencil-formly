@@ -4,3 +4,5 @@ const ChoicesJs = ChoicesJSStencil;
 const defineCustomElement = defineCustomElement$1;
 
 export { ChoicesJs, defineCustomElement };
+
+//# sourceMappingURL=choices-js.js.map
